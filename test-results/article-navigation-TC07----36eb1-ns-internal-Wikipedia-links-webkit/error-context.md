@@ -1,0 +1,3995 @@
+# Instructions
+
+- Following Playwright test failed.
+- Explain why, be concise, respect Playwright best practices.
+- Provide a snippet of code with the fix, if possible.
+
+# Test info
+
+- Name: article-navigation.spec.js >> TC07 - Article contains internal Wikipedia links
+- Location: tests\article-navigation.spec.js:29:1
+
+# Error details
+
+```
+Error: expect(locator).toBeVisible() failed
+
+Locator: locator('#mw-content-text a[href^="/wiki/"]').first()
+Expected: visible
+Timeout: 5000ms
+Error: element(s) not found
+
+Call log:
+  - Expect "toBeVisible" locator('#mw-content-text a[href^="/wiki/"]').first() with timeout 5000ms
+  - waiting for locator('#mw-content-text a[href^="/wiki/"]').first()
+
+```
+
+```yaml
+- link "Jump to content":
+  - /url: "#bodyContent"
+- banner:
+  - navigation "Site":
+    - button "Main menu"
+  - link "Wikipedia The Free Encyclopedia":
+    - /url: /wiki/Main_Page
+    - img "Wikipedia"
+    - img "The Free Encyclopedia"
+  - search:
+    - searchbox "Search Wikipedia"
+    - button "Search"
+  - navigation "Personal tools":
+    - list:
+      - listitem:
+        - link "Donate":
+          - /url: https://donate.wikimedia.org/?wmf_source=donate&wmf_medium=sidebar&wmf_campaign=en.wikipedia.org&uselang=en
+      - listitem:
+        - link "Create account":
+          - /url: /w/index.php?title=Special:CreateAccount&returnto=Computer+science
+      - listitem:
+        - link "Log in":
+          - /url: /w/index.php?title=Special:UserLogin&returnto=Computer+science
+- navigation "Contents":
+  - heading "Contents" [level=2]
+  - button "Hide Contents": hide
+  - list:
+    - listitem:
+      - link "(Top)":
+        - /url: "#"
+    - listitem:
+      - link "History":
+        - /url: "#History"
+      - list
+    - listitem:
+      - link "Etymology and scope":
+        - /url: "#Etymology_and_scope"
+      - list
+    - listitem:
+      - link "Philosophy":
+        - /url: "#Philosophy"
+      - button "Toggle Philosophy subsection"
+      - list
+    - listitem:
+      - link "Fields":
+        - /url: "#Fields"
+      - button "Toggle Fields subsection"
+      - list
+    - listitem:
+      - link "Discoveries":
+        - /url: "#Discoveries"
+      - list
+    - listitem:
+      - link "Programming paradigms":
+        - /url: "#Programming_paradigms"
+      - list
+    - listitem:
+      - link "Research":
+        - /url: "#Research"
+      - list
+    - listitem:
+      - link "See also":
+        - /url: "#See_also"
+      - list
+    - listitem:
+      - link "Notes":
+        - /url: "#Notes"
+      - list
+    - listitem:
+      - link "References":
+        - /url: "#References"
+      - list
+    - listitem:
+      - link "Further reading":
+        - /url: "#Further_reading"
+      - list
+    - listitem:
+      - link "External links":
+        - /url: "#External_links"
+      - list
+- main:
+  - heading "Computer science" [level=1]
+  - button "169 languages"
+  - navigation "Namespaces":
+    - list:
+      - listitem:
+        - link "Article":
+          - /url: /wiki/Computer_science
+      - listitem:
+        - link "Talk":
+          - /url: /wiki/Talk:Computer_science
+  - navigation "Views":
+    - list:
+      - listitem:
+        - link "Read":
+          - /url: /wiki/Computer_science
+      - listitem:
+        - link "View source":
+          - /url: /w/index.php?title=Computer_science&action=edit
+      - listitem:
+        - link "View history":
+          - /url: /w/index.php?title=Computer_science&action=history
+  - navigation "Page tools":
+    - button "Tools"
+  - navigation "Appearance":
+    - text: Appearance
+    - button "Hide Appearance": hide
+    - text: Text
+    - list:
+      - listitem:
+        - radio "Small"
+        - text: Small
+        - radio "Standard" [checked]
+        - text: Standard
+        - radio "Large"
+        - text: Large
+    - text: Width
+    - list:
+      - listitem:
+        - radio "Standard" [checked]
+        - text: Standard
+        - radio "Wide"
+        - text: Wide
+    - text: Color
+    - list:
+      - listitem:
+        - radio "Automatic"
+        - text: Automatic
+        - radio "Light" [checked]
+        - text: Light
+        - radio "Dark"
+        - text: Dark
+  - link "Page semi-protected":
+    - /url: https://en.wikipedia.org/wiki/Wikipedia:Protection_policy#semi
+    - img "Page semi-protected"
+  - text: From Wikipedia, the free encyclopedia
+  - note:
+    - text: For other uses, see
+    - link "Computer science (disambiguation)":
+      - /url: https://en.wikipedia.org/wiki/Computer_science_(disambiguation)
+    - text: .
+  - text: Fundamental areas of computer science
+  - link "Expression for Church numerals in lambda calculus":
+    - /url: https://en.wikipedia.org/wiki/File:Lambda_calculus-Church_numerals.png
+    - img "Expression for Church numerals in lambda calculus"
+  - link "Programming language theory":
+    - /url: https://en.wikipedia.org/wiki/Programming_language_theory
+  - link "Half-adder circuit":
+    - /url: https://en.wikipedia.org/wiki/File:Half_Adder.svg
+    - img "Half-adder circuit"
+  - link "Computer architecture":
+    - /url: https://en.wikipedia.org/wiki/Computer_architecture
+  - link "Example of an artificial neural network":
+    - /url: https://en.wikipedia.org/wiki/File:Artificial_neural_network.svg
+    - img "Example of an artificial neural network"
+  - link "Artificial intelligence":
+    - /url: https://en.wikipedia.org/wiki/Artificial_intelligence
+  - link "Plot of a quicksort algorithm":
+    - /url: https://en.wikipedia.org/wiki/File:Sorting_quicksort_anim.gif
+    - img "Plot of a quicksort algorithm"
+  - link "Computational complexity theory":
+    - /url: https://en.wikipedia.org/wiki/Computational_complexity_theory
+  - navigation:
+    - rowgroup:
+      - row "Computer science":
+        - columnheader "Computer science":
+          - link "Computer science":
+            - /url: https://en.wikipedia.org/wiki/Computer_science
+      - row:
+        - cell:
+          - figure:
+            - link:
+              - /url: https://en.wikipedia.org/wiki/File:Flowchart_structured_programming.svg
+              - img
+      - row "History · Outline · Glossary · Category":
+        - cell "History · Outline · Glossary · Category":
+          - list:
+            - listitem:
+              - link "History":
+                - /url: https://en.wikipedia.org/wiki/History_of_computer_science
+              - text: ·
+            - listitem:
+              - link "Outline":
+                - /url: https://en.wikipedia.org/wiki/Outline_of_computer_science
+              - text: ·
+            - listitem:
+              - link "Glossary":
+                - /url: https://en.wikipedia.org/wiki/Glossary_of_computer_science
+              - text: ·
+            - listitem:
+              - link "Category":
+                - /url: https://en.wikipedia.org/wiki/Category:Computer_science
+      - row "v · t · e":
+        - cell "v · t · e":
+          - list:
+            - listitem:
+              - link "v":
+                - /url: https://en.wikipedia.org/wiki/Template:TopicTOC-Computer_science
+              - text: ·
+            - listitem:
+              - link "t":
+                - /url: https://en.wikipedia.org/wiki/Template_talk:TopicTOC-Computer_science
+              - text: ·
+            - listitem:
+              - link "e":
+                - /url: https://en.wikipedia.org/wiki/Special:EditPage/Template:TopicTOC-Computer_science
+  - paragraph:
+    - text: Computer science is the study of
+    - link "computation":
+      - /url: https://en.wikipedia.org/wiki/Computation
+    - text: ","
+    - link "information":
+      - /url: https://en.wikipedia.org/wiki/Information
+    - text: ", and"
+    - link "automation":
+      - /url: https://en.wikipedia.org/wiki/Automation
+    - text: ", together with their associated phenomena."
+    - superscript:
+      - link "[1]":
+        - /url: "#cite_note-YorkDefinition-1"
+    - superscript:
+      - link "[2]":
+        - /url: "#cite_note-MITAutomated-2"
+    - superscript:
+      - link "[3]":
+        - /url: "#cite_note-DenningAutomated-3"
+    - superscript:
+      - link "[4]":
+        - /url: "#cite_note-4"
+    - text: Included broadly in
+    - link "the sciences":
+      - /url: https://en.wikipedia.org/wiki/Science
+    - text: ", computer science spans"
+    - link "theoretical disciplines":
+      - /url: https://en.wikipedia.org/wiki/Theoretical_computer_science
+    - text: (such as
+    - link "algorithms":
+      - /url: https://en.wikipedia.org/wiki/Algorithm
+    - text: ","
+    - link "theory of computation":
+      - /url: https://en.wikipedia.org/wiki/Theory_of_computation
+    - text: ", and"
+    - link "information theory":
+      - /url: https://en.wikipedia.org/wiki/Information_theory
+    - text: ) to
+    - link "applied disciplines":
+      - /url: https://en.wikipedia.org/wiki/Applied_science
+    - text: (including the design and implementation of
+    - link "hardware":
+      - /url: https://en.wikipedia.org/wiki/Computer_architecture
+    - text: and
+    - link "software":
+      - /url: https://en.wikipedia.org/wiki/Software
+    - text: ).
+    - superscript:
+      - link "[5]":
+        - /url: "#cite_note-5"
+    - superscript:
+      - link "[6]":
+        - /url: "#cite_note-6"
+    - superscript:
+      - link "[7]":
+        - /url: "#cite_note-7"
+    - text: An expert in the field is known as a
+    - link "computer scientist":
+      - /url: https://en.wikipedia.org/wiki/Computer_scientist
+    - text: .
+  - paragraph:
+    - text: Algorithms and
+    - link "data structures":
+      - /url: https://en.wikipedia.org/wiki/Data_structure
+    - text: are central to computer science.
+    - superscript:
+      - link "[8]":
+        - /url: "#cite_note-8"
+    - text: The theory of computation concerns abstract
+    - link "models of computation":
+      - /url: https://en.wikipedia.org/wiki/Models_of_computation
+    - text: and general classes of
+    - link "problems":
+      - /url: https://en.wikipedia.org/wiki/Computational_problem
+    - text: that can be solved using them. The fields of
+    - link "cryptography":
+      - /url: https://en.wikipedia.org/wiki/Cryptography
+    - text: and
+    - link "computer security":
+      - /url: https://en.wikipedia.org/wiki/Computer_security
+    - text: involve studying the means for secure communication and preventing
+    - link "security vulnerabilities":
+      - /url: https://en.wikipedia.org/wiki/Security_vulnerabilities
+    - text: .
+    - link "Computer graphics":
+      - /url: https://en.wikipedia.org/wiki/Computer_graphics_(computer_science)
+    - text: and
+    - link "computational geometry":
+      - /url: https://en.wikipedia.org/wiki/Computational_geometry
+    - text: address the generation of images.
+    - link "Programming language theory":
+      - /url: https://en.wikipedia.org/wiki/Programming_language_theory
+    - text: considers different ways to describe computational processes, and
+    - link "database":
+      - /url: https://en.wikipedia.org/wiki/Database
+    - text: theory concerns the management of repositories of data.
+    - link "Human–computer interaction":
+      - /url: https://en.wikipedia.org/wiki/Human–computer_interaction
+    - text: investigates the interfaces through which humans and computers interact, and
+    - link "software engineering":
+      - /url: https://en.wikipedia.org/wiki/Software_engineering
+    - text: focuses on the design and principles behind developing software. Areas such as
+    - link "operating systems":
+      - /url: https://en.wikipedia.org/wiki/Operating_system
+    - text: ","
+    - link "networks":
+      - /url: https://en.wikipedia.org/wiki/Computer_network
+    - text: and
+    - link "embedded systems":
+      - /url: https://en.wikipedia.org/wiki/Embedded_system
+    - text: investigate the principles and design behind
+    - link "complex systems":
+      - /url: https://en.wikipedia.org/wiki/Complex_system
+    - text: . Computer architecture describes the construction of computer components and computer-operated equipment.
+    - link "Artificial intelligence":
+      - /url: https://en.wikipedia.org/wiki/Artificial_intelligence
+    - text: and
+    - link "machine learning":
+      - /url: https://en.wikipedia.org/wiki/Machine_learning
+    - text: aim to synthesize goal-orientated processes such as problem-solving, decision-making, environmental adaptation,
+    - link "planning":
+      - /url: https://en.wikipedia.org/wiki/Automated_planning_and_scheduling
+    - text: and learning found in humans and animals. Within artificial intelligence,
+    - link "computer vision":
+      - /url: https://en.wikipedia.org/wiki/Computer_vision
+    - text: aims to understand and process image and video data, while
+    - link "natural language processing":
+      - /url: https://en.wikipedia.org/wiki/Natural_language_processing
+    - text: aims to understand and process textual and linguistic data.
+  - paragraph:
+    - text: The fundamental concern of computer science is determining what can and cannot be automated.
+    - superscript:
+      - link "[2]":
+        - /url: "#cite_note-MITAutomated-2"
+    - superscript:
+      - link "[9]":
+        - /url: "#cite_note-9"
+    - superscript:
+      - link "[3]":
+        - /url: "#cite_note-DenningAutomated-3"
+    - superscript:
+      - link "[10]":
+        - /url: "#cite_note-10"
+    - superscript:
+      - link "[11]":
+        - /url: "#cite_note-11"
+    - text: The
+    - link "Turing Award":
+      - /url: https://en.wikipedia.org/wiki/Turing_Award
+    - text: is generally recognized as the highest distinction in computer science.
+    - superscript:
+      - link "[12]":
+        - /url: "#cite_note-12"
+    - superscript:
+      - link "[13]":
+        - /url: "#cite_note-13"
+  - region "History":
+    - heading "History" [level=2]
+    - navigation:
+      - rowgroup:
+        - row "History of computing":
+          - columnheader "History of computing":
+            - link "History of computing":
+              - /url: https://en.wikipedia.org/wiki/History_of_computing
+        - row:
+          - cell:
+            - figure:
+              - link:
+                - /url: https://en.wikipedia.org/wiki/File:Glen_Beck_and_Betty_Snyder_program_the_ENIAC_in_building_328_at_the_Ballistic_Research_Laboratory.jpg
+                - img
+        - row "Hardware":
+          - columnheader "Hardware":
+            - link "Hardware":
+              - /url: https://en.wikipedia.org/wiki/Computer_hardware
+        - row "Hardware 1960s to present":
+          - cell "Hardware 1960s to present":
+            - list:
+              - listitem:
+                - link "Hardware 1960s to present":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computing_hardware_(1960s–present)
+        - row "Software":
+          - columnheader "Software":
+            - link "Software":
+              - /url: https://en.wikipedia.org/wiki/Software
+        - row "Software · Software configuration management · Unix · Free and open-source software":
+          - cell "Software · Software configuration management · Unix · Free and open-source software":
+            - list:
+              - listitem:
+                - link "Software":
+                  - /url: https://en.wikipedia.org/wiki/History_of_software
+                - text: ·
+              - listitem:
+                - link "Software configuration management":
+                  - /url: https://en.wikipedia.org/wiki/History_of_software_configuration_management
+                - text: ·
+              - listitem:
+                - link "Unix":
+                  - /url: https://en.wikipedia.org/wiki/History_of_Unix
+                - text: ·
+              - listitem:
+                - link "Free and open-source software":
+                  - /url: https://en.wikipedia.org/wiki/History_of_free_and_open-source_software
+        - row "Computer science":
+          - columnheader "Computer science":
+            - link "Computer science":
+              - /url: https://en.wikipedia.org/wiki/Computer_science
+        - row "Artificial intelligence · Compiler construction · Early computer science · Operating systems · Programming languages · Prominent pioneers · Software engineering":
+          - cell "Artificial intelligence · Compiler construction · Early computer science · Operating systems · Programming languages · Prominent pioneers · Software engineering":
+            - list:
+              - listitem:
+                - link "Artificial intelligence":
+                  - /url: https://en.wikipedia.org/wiki/History_of_artificial_intelligence
+                - text: ·
+              - listitem:
+                - link "Compiler construction":
+                  - /url: https://en.wikipedia.org/wiki/History_of_compiler_construction
+                - text: ·
+              - listitem:
+                - link "Early computer science":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computer_science
+                - text: ·
+              - listitem:
+                - link "Operating systems":
+                  - /url: https://en.wikipedia.org/wiki/History_of_operating_systems
+                - text: ·
+              - listitem:
+                - link "Programming languages":
+                  - /url: https://en.wikipedia.org/wiki/History_of_programming_languages
+                - text: ·
+              - listitem:
+                - link "Prominent pioneers":
+                  - /url: https://en.wikipedia.org/wiki/List_of_pioneers_in_computer_science
+                - text: ·
+              - listitem:
+                - link "Software engineering":
+                  - /url: https://en.wikipedia.org/wiki/History_of_software_engineering
+        - row "Modern concepts":
+          - columnheader "Modern concepts"
+        - row "General-purpose CPUs · Graphical user interface · Internet · Laptops · Personal computers · Video games · World Wide Web · Cloud · Quantum":
+          - cell "General-purpose CPUs · Graphical user interface · Internet · Laptops · Personal computers · Video games · World Wide Web · Cloud · Quantum":
+            - list:
+              - listitem:
+                - link "General-purpose CPUs":
+                  - /url: https://en.wikipedia.org/wiki/History_of_general-purpose_CPUs
+                - text: ·
+              - listitem:
+                - link "Graphical user interface":
+                  - /url: https://en.wikipedia.org/wiki/History_of_the_graphical_user_interface
+                - text: ·
+              - listitem:
+                - link "Internet":
+                  - /url: https://en.wikipedia.org/wiki/History_of_the_Internet
+                - text: ·
+              - listitem:
+                - link "Laptops":
+                  - /url: https://en.wikipedia.org/wiki/History_of_laptops
+                - text: ·
+              - listitem:
+                - link "Personal computers":
+                  - /url: https://en.wikipedia.org/wiki/History_of_personal_computers
+                - text: ·
+              - listitem:
+                - link "Video games":
+                  - /url: https://en.wikipedia.org/wiki/History_of_video_games
+                - text: ·
+              - listitem:
+                - link "World Wide Web":
+                  - /url: https://en.wikipedia.org/wiki/History_of_the_World_Wide_Web
+                - text: ·
+              - listitem:
+                - link "Cloud":
+                  - /url: https://en.wikipedia.org/wiki/History_of_cloud_computing
+                - text: ·
+              - listitem:
+                - link "Quantum":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_quantum_computing_and_communication
+        - row "By country":
+          - columnheader "By country"
+        - row "Bulgaria · Eastern Bloc · Poland · Romania · South America · Soviet Union · Yugoslavia":
+          - cell "Bulgaria · Eastern Bloc · Poland · Romania · South America · Soviet Union · Yugoslavia":
+            - list:
+              - listitem:
+                - link "Bulgaria":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computer_hardware_in_Bulgaria
+                - text: ·
+              - listitem:
+                - link "Eastern Bloc":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computer_hardware_in_Eastern_Bloc_countries
+                - text: ·
+              - listitem:
+                - link "Poland":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computing_in_Poland
+                - text: ·
+              - listitem:
+                - link "Romania":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computing_in_Romania
+                - text: ·
+              - listitem:
+                - link "South America":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computing_in_South_America
+                - text: ·
+              - listitem:
+                - link "Soviet Union":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computing_in_the_Soviet_Union
+                - text: ·
+              - listitem:
+                - link "Yugoslavia":
+                  - /url: https://en.wikipedia.org/wiki/History_of_computer_hardware_in_Yugoslavia
+        - row "Timeline of computing":
+          - columnheader "Timeline of computing":
+            - link "Timeline of computing":
+              - /url: https://en.wikipedia.org/wiki/Timeline_of_computing
+        - row "before 1950 · 1950–1979 · 1980–1989 · 1990–1999 · 2000–2009 · 2010–2019 · 2020–present · more timelines ...":
+          - cell "before 1950 · 1950–1979 · 1980–1989 · 1990–1999 · 2000–2009 · 2010–2019 · 2020–present · more timelines ...":
+            - list:
+              - listitem:
+                - link "before 1950":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_hardware_before_1950
+                - text: ·
+              - listitem:
+                - link "1950–1979":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_1950–1979
+                - text: ·
+              - listitem:
+                - link "1980–1989":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_1980–1989
+                - text: ·
+              - listitem:
+                - link "1990–1999":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_1990–1999
+                - text: ·
+              - listitem:
+                - link "2000–2009":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_2000–2009
+                - text: ·
+              - listitem:
+                - link "2010–2019":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_2010–2019
+                - text: ·
+              - listitem:
+                - link "2020–present":
+                  - /url: https://en.wikipedia.org/wiki/Timeline_of_computing_2020–present
+                - text: ·
+              - listitem:
+                - link "more timelines ...":
+                  - /url: https://en.wikipedia.org/wiki/Category:Computing_timelines
+        - row "Glossary of computer science":
+          - columnheader "Glossary of computer science":
+            - link "Glossary of computer science":
+              - /url: https://en.wikipedia.org/wiki/Glossary_of_computer_science
+        - row "Category Category":
+          - cell "Category Category":
+            - list:
+              - listitem:
+                - link "Category":
+                  - /url: https://en.wikipedia.org/wiki/Category:History_of_computing
+        - row "v · t · e":
+          - cell "v · t · e":
+            - list:
+              - listitem:
+                - link "v":
+                  - /url: https://en.wikipedia.org/wiki/Template:History_of_computing
+                - text: ·
+              - listitem:
+                - link "t":
+                  - /url: https://en.wikipedia.org/wiki/Template_talk:History_of_computing
+                - text: ·
+              - listitem:
+                - link "e":
+                  - /url: https://en.wikipedia.org/wiki/Special:EditPage/Template:History_of_computing
+    - note:
+      - text: "Main article:"
+      - link "History of computer science":
+        - /url: https://en.wikipedia.org/wiki/History_of_computer_science
+    - note:
+      - text: "See also:"
+      - link "History of computing":
+        - /url: https://en.wikipedia.org/wiki/History_of_computing
+      - text: and
+      - link "History of informatics":
+        - /url: https://en.wikipedia.org/wiki/History_of_informatics
+    - figure "Thomas Harriot (1646–1716) developed binary notation and arithmetic in the early 17th century.[14]":
+      - link:
+        - /url: https://en.wikipedia.org/wiki/File:ThomasHarriot.jpg
+        - img
+      - link "Thomas Harriot":
+        - /url: https://en.wikipedia.org/wiki/Thomas_Harriot
+      - text: (1646–1716) developed
+      - link "binary notation and arithmetic":
+        - /url: https://en.wikipedia.org/wiki/Binary_number
+      - text: in the early 17th century.
+      - superscript:
+        - link "[14]":
+          - /url: "#cite_note-Why_Did_Thomas_Harriot_Invent_Binar-14"
+    - figure "Charles Babbage is sometimes referred to as the \"father of computing\".[15]":
+      - link:
+        - /url: https://en.wikipedia.org/wiki/File:Babbage40.png
+        - img
+      - link "Charles Babbage":
+        - /url: https://en.wikipedia.org/wiki/Charles_Babbage
+      - text: is sometimes referred to as the "father of computing".
+      - superscript:
+        - link "[15]":
+          - /url: "#cite_note-15"
+    - figure "Ada Lovelace published the first algorithm intended for processing on a computer.[16]":
+      - link:
+        - /url: https://en.wikipedia.org/wiki/File:Ada_lovelace.jpg
+        - img
+      - link "Ada Lovelace":
+        - /url: https://en.wikipedia.org/wiki/Ada_Lovelace
+      - text: published the first
+      - link "algorithm":
+        - /url: https://en.wikipedia.org/wiki/Algorithm
+      - text: intended for processing on a computer.
+      - superscript:
+        - link "[16]":
+          - /url: "#cite_note-16"
+    - paragraph:
+      - text: The earliest foundations of what would become computer science predate the invention of the modern
+      - link "digital computer":
+        - /url: https://en.wikipedia.org/wiki/Digital_computer
+      - text: . Machines for calculating fixed numerical tasks such as the
+      - link "abacus":
+        - /url: https://en.wikipedia.org/wiki/Abacus
+      - text: have existed since antiquity, aiding in computations such as multiplication and division.
+      - link "Algorithms":
+        - /url: https://en.wikipedia.org/wiki/Algorithm
+      - text: for performing computations have existed since antiquity, even before the development of sophisticated computing equipment.
+      - superscript:
+        - link "[17]":
+          - /url: "#cite_note-17"
+    - paragraph:
+      - link "Wilhelm Schickard":
+        - /url: https://en.wikipedia.org/wiki/Wilhelm_Schickard
+      - text: designed and constructed the first working
+      - link "mechanical calculator":
+        - /url: https://en.wikipedia.org/wiki/Mechanical_calculator
+      - text: in 1623.
+      - superscript:
+        - link "[18]":
+          - /url: "#cite_note-18"
+      - text: In 1673,
+      - link "Gottfried Leibniz":
+        - /url: https://en.wikipedia.org/wiki/Gottfried_Leibniz
+      - text: demonstrated a digital mechanical calculator, called the
+      - link "Stepped Reckoner":
+        - /url: https://en.wikipedia.org/wiki/Stepped_Reckoner
+      - text: .
+      - superscript:
+        - link "[19]":
+          - /url: "#cite_note-19"
+      - superscript:
+        - link "[20]":
+          - /url: "#cite_note-20"
+      - text: Leibniz may be considered the first
+      - link "computer scientist":
+        - /url: https://en.wikipedia.org/wiki/Computer_scientist
+      - text: and information theorist, because of various reasons, including the fact that he documented the binary number system, although
+      - link "Thomas Harriot":
+        - /url: https://en.wikipedia.org/wiki/Thomas_Harriot
+      - text: had already done so decades earlier.
+      - superscript:
+        - link "[14]":
+          - /url: "#cite_note-Why_Did_Thomas_Harriot_Invent_Binar-14"
+      - text: In 1820,
+      - link "Thomas de Colmar":
+        - /url: https://en.wikipedia.org/wiki/Thomas_de_Colmar
+      - text: launched the mechanical calculator industry
+      - superscript:
+        - link "[note 1]":
+          - /url: "#cite_note-21"
+      - text: when he invented his simplified
+      - link "arithmometer":
+        - /url: https://en.wikipedia.org/wiki/Arithmometer
+      - text: ", the first calculating machine strong enough and reliable enough to be used daily in an office environment."
+      - link "Charles Babbage":
+        - /url: https://en.wikipedia.org/wiki/Charles_Babbage
+      - text: started the design of the first automatic mechanical calculator, his
+      - link "Difference Engine":
+        - /url: https://en.wikipedia.org/wiki/Difference_Engine
+      - text: ", in 1822, which eventually gave him the idea of the first programmable mechanical calculator, his"
+      - link "Analytical Engine":
+        - /url: https://en.wikipedia.org/wiki/Analytical_Engine
+      - text: .
+      - superscript:
+        - link "[21]":
+          - /url: "#cite_note-22"
+      - text: He started developing this machine in 1834, and "in less than two years, he had sketched out many of the
+      - link "salient":
+        - /url: https://en.wiktionary.org/wiki/Special:Search/salient
+      - text: features of the modern computer".
+      - superscript:
+        - link "[22]":
+          - /url: "#cite_note-Hyman1982-23"
+      - text: "\"A crucial step was the adoption of a punched card system derived from the"
+      - link "Jacquard loom":
+        - /url: https://en.wikipedia.org/wiki/Jacquard_loom
+      - text: "\","
+      - superscript:
+        - link "[22]":
+          - /url: "#cite_note-Hyman1982-23"
+      - text: making it infinitely programmable.
+      - superscript:
+        - link "[note 2]":
+          - /url: "#cite_note-24"
+      - text: In 1843, during the translation of a French article on the Analytical Engine,
+      - link "Ada Lovelace":
+        - /url: https://en.wikipedia.org/wiki/Ada_Lovelace
+      - text: wrote, in one of the many notes she included, an algorithm to compute the
+      - link "Bernoulli numbers":
+        - /url: https://en.wikipedia.org/wiki/Bernoulli_number
+      - text: ", which is considered to be the first published algorithm ever specifically tailored for implementation on a computer."
+      - superscript:
+        - link "[23]":
+          - /url: "#cite_note-25"
+      - text: Around 1885,
+      - link "Herman Hollerith":
+        - /url: https://en.wikipedia.org/wiki/Herman_Hollerith
+      - text: invented the
+      - link "tabulator":
+        - /url: https://en.wikipedia.org/wiki/Tabulating_machine
+      - text: ", which used"
+      - link "punched cards":
+        - /url: https://en.wikipedia.org/wiki/Punched_card
+      - text: to process statistical information; eventually his company became part of
+      - link "IBM":
+        - /url: https://en.wikipedia.org/wiki/IBM
+      - text: . Following Babbage, although unaware of his earlier work,
+      - link "Percy Ludgate":
+        - /url: https://en.wikipedia.org/wiki/Percy_Ludgate
+      - text: in 1909 published
+      - superscript:
+        - link "[24]":
+          - /url: "#cite_note-26"
+      - text: the second of the only two designs for mechanical analytical engines in history. In 1914, the Spanish engineer
+      - link "Leonardo Torres Quevedo":
+        - /url: https://en.wikipedia.org/wiki/Leonardo_Torres_Quevedo
+      - text: published his Essays on Automatics,
+      - superscript:
+        - link "[25]":
+          - /url: "#cite_note-LTQ1914es-27"
+      - text: and designed, inspired by Babbage, a theoretical
+      - link "electromechanical":
+        - /url: https://en.wikipedia.org/wiki/Electromechanical
+      - text: calculating machine which was to be controlled by a read-only program. The paper also introduced the idea of
+      - link "floating-point arithmetic":
+        - /url: https://en.wikipedia.org/wiki/Floating-point_arithmetic
+      - text: .
+      - superscript:
+        - link "[26]":
+          - /url: "#cite_note-28"
+      - superscript:
+        - link "[27]":
+          - /url: "#cite_note-29"
+      - text: In 1920, to celebrate the 100th anniversary of the invention of the arithmometer, Torres presented in Paris the
+      - link "Electromechanical Arithmometer":
+        - /url: https://en.wikipedia.org/wiki/Leonardo_Torres_y_Quevedo#Analytical_machines
+      - text: ", a prototype that demonstrated the feasibility of an electromechanical analytical engine,"
+      - superscript:
+        - link "[28]":
+          - /url: "#cite_note-30"
+      - text: on which commands could be typed and the results printed automatically.
+      - superscript:
+        - link "[29]":
+          - /url: "#cite_note-FOOTNOTERandell19826,_11–13-31"
+      - text: In 1937, one hundred years after Babbage's impossible dream,
+      - link "Howard Aiken":
+        - /url: https://en.wikipedia.org/wiki/Howard_Aiken
+      - text: convinced IBM, which was making all kinds of punched card equipment and was also in the calculator business
+      - superscript:
+        - link "[30]":
+          - /url: "#cite_note-32"
+      - text: to develop his giant
+      - link "programmable calculator":
+        - /url: https://en.wikipedia.org/wiki/Programmable_calculator
+      - text: ", the"
+      - link "ASCC/Harvard Mark I":
+        - /url: https://en.wikipedia.org/wiki/Harvard_Mark_I
+      - text: ", based on Babbage's Analytical Engine, which itself used"
+      - link "punched cards":
+        - /url: https://en.wikipedia.org/wiki/Punched_cards
+      - text: and a
+      - link "central processing unit":
+        - /url: https://en.wikipedia.org/wiki/Central_processing_unit
+      - text: . When the machine was finished, some hailed it as "Babbage's dream come true".
+      - superscript:
+        - link "[31]":
+          - /url: "#cite_note-33"
+    - paragraph:
+      - text: During the 1940s, with the development of new and more powerful
+      - link "computing":
+        - /url: https://en.wikipedia.org/wiki/Computing
+      - text: machines such as the
+      - link "Atanasoff–Berry computer":
+        - /url: https://en.wikipedia.org/wiki/Atanasoff–Berry_computer
+      - text: and
+      - link "ENIAC":
+        - /url: https://en.wikipedia.org/wiki/ENIAC
+      - text: ", the term computer came to refer to the machines rather than their human predecessors."
+      - superscript:
+        - link "[32]":
+          - /url: "#cite_note-34"
+      - text: As it became clear that computers could be used for more than just mathematical calculations, the field of computer science broadened to study
+      - link "computation":
+        - /url: https://en.wikipedia.org/wiki/Computation
+      - text: in general. In 1945, IBM founded the
+      - link "Watson Scientific Computing Laboratory":
+        - /url: https://en.wikipedia.org/wiki/Watson_Scientific_Computing_Laboratory
+      - text: at
+      - link "Columbia University":
+        - /url: https://en.wikipedia.org/wiki/Columbia_University
+      - text: in
+      - link "New York City":
+        - /url: https://en.wikipedia.org/wiki/New_York_City
+      - text: . The renovated fraternity house on Manhattan's West Side was IBM's first laboratory devoted to pure science. The lab is the forerunner of IBM's Research Division, which today operates research facilities around the world.
+      - superscript:
+        - link "[33]":
+          - /url: "#cite_note-35"
+      - text: Ultimately, the close relationship between IBM and Columbia University was instrumental in the emergence of a new scientific discipline, with Columbia offering one of the first academic-credit courses in computer science in 1946.
+      - superscript:
+        - link "[34]":
+          - /url: "#cite_note-36"
+      - text: Computer science began to be established as a distinct academic discipline in the 1950s and early 1960s.
+      - superscript:
+        - link "[35]":
+          - /url: "#cite_note-Denning-37"
+      - superscript:
+        - link "[36]":
+          - /url: "#cite_note-38"
+      - text: The world's first computer science degree program, the
+      - link "Cambridge Diploma in Computer Science":
+        - /url: https://en.wikipedia.org/wiki/Cambridge_Diploma_in_Computer_Science
+      - text: ", began at the"
+      - link "University of Cambridge Computer Laboratory":
+        - /url: https://en.wikipedia.org/wiki/University_of_Cambridge_Computer_Laboratory
+      - text: in 1953. The first computer science department in the United States was formed at
+      - link "Purdue University":
+        - /url: https://en.wikipedia.org/wiki/Purdue_University
+      - text: in 1962.
+      - superscript:
+        - link "[37]":
+          - /url: "#cite_note-39"
+      - text: Since practical computers became available, many applications of computing have become distinct areas of study in their own rights.
+  - region "Etymology and scope":
+    - heading "Etymology and scope" [level=2]
+    - note:
+      - text: "See also:"
+      - link "Informatics § Etymology":
+        - /url: https://en.wikipedia.org/wiki/Informatics#Etymology
+    - paragraph:
+      - text: Although first proposed in 1956,
+      - superscript:
+        - link "[38]":
+          - /url: "#cite_note-Tedre2014-40"
+      - text: the term "computer science" appears in a 1959 article in
+      - link "Communications of the ACM":
+        - /url: https://en.wikipedia.org/wiki/Communications_of_the_ACM
+      - text: ","
+      - superscript:
+        - link "[39]":
+          - /url: "#cite_note-Fine_1959-41"
+      - text: in which Louis Fein argues for the creation of a Graduate School in Computer Sciences analogous to the creation of
+      - link "Harvard Business School":
+        - /url: https://en.wikipedia.org/wiki/Harvard_Business_School
+      - text: in 1921.
+      - superscript:
+        - link "[40]":
+          - /url: "#cite_note-42"
+      - text: Louis justifies the name by arguing that, like
+      - link "management science":
+        - /url: https://en.wikipedia.org/wiki/Management_science
+      - text: ", the subject is applied and interdisciplinary in nature, while having the characteristics typical of an academic discipline."
+      - superscript:
+        - link "[39]":
+          - /url: "#cite_note-Fine_1959-41"
+      - text: This effort, and those of others such as
+      - link "numerical analyst":
+        - /url: https://en.wikipedia.org/wiki/Numerical_analyst
+      - link "George Forsythe":
+        - /url: https://en.wikipedia.org/wiki/George_Forsythe
+      - text: ", were successful, and universities went on to create such departments, starting with Purdue in 1962."
+      - superscript:
+        - link "[41]":
+          - /url: "#cite_note-43"
+      - text: Despite its name, a significant amount of computer science does not involve the study of computers themselves. Because of this, several alternative names have been proposed.
+      - superscript:
+        - link "[42]":
+          - /url: "#cite_note-44"
+      - text: Certain departments of major universities prefer the term computing science, to emphasize precisely that difference. Danish scientist
+      - link "Peter Naur":
+        - /url: https://en.wikipedia.org/wiki/Peter_Naur
+      - text: suggested the term datalogy,
+      - superscript:
+        - link "[43]":
+          - /url: "#cite_note-45"
+      - text: to reflect the fact that the scientific discipline revolves around data and data treatment, while not necessarily involving computers. The first scientific institution to use the term was the Department of Datalogy at the
+      - link "University of Copenhagen":
+        - /url: https://en.wikipedia.org/wiki/University_of_Copenhagen
+      - text: ", founded in 1969, with Peter Naur being the first professor in datalogy. The term is used mainly in the Scandinavian countries. An alternative term, also proposed by Naur, is"
+      - link "data science":
+        - /url: https://en.wikipedia.org/wiki/Data_science
+      - text: ; this is now used for a
+      - link "multi-disciplinary":
+        - /url: https://en.wikipedia.org/wiki/Multi-disciplinary
+      - text: field of data analysis, including statistics and databases.
+    - paragraph:
+      - text: In the early days of computing, a number of terms for the practitioners of the field of computing were suggested (albeit facetiously) in the Communications of the ACM—turingineer, turologist, flow-charts-man, applied meta-mathematician, and applied
+      - link "epistemologist":
+        - /url: https://en.wikipedia.org/wiki/Epistemologist
+      - text: .
+      - superscript:
+        - link "[44]":
+          - /url: "#cite_note-46"
+      - text: Three months later in the same journal, comptologist was suggested, followed next year by hypologist.
+      - superscript:
+        - link "[45]":
+          - /url: "#cite_note-47"
+      - text: The term computics has also been suggested.
+      - superscript:
+        - link "[46]":
+          - /url: "#cite_note-48"
+      - text: In Europe, terms derived from contracted translations of the expression "automatic information" (e.g. "informazione automatica" in Italian) or "information and mathematics" are often used, e.g. informatique (French), Informatik (German), informatica (Italian, Dutch), informática (Spanish, Portuguese), informatika (
+      - link "Slavic languages":
+        - /url: https://en.wikipedia.org/wiki/Slavic_languages
+      - text: and
+      - link "Hungarian":
+        - /url: https://en.wikipedia.org/wiki/Hungarian_language
+      - text: ) or pliroforiki (πληροφορική, which means informatics) in
+      - link "Greek":
+        - /url: https://en.wikipedia.org/wiki/Greek_language
+      - text: . Similar words have also been adopted in the UK (as in the
+      - link "School of Informatics, University of Edinburgh":
+        - /url: https://en.wikipedia.org/wiki/School_of_Informatics,_University_of_Edinburgh
+      - text: ).
+      - superscript:
+        - link "[47]":
+          - /url: "#cite_note-49"
+      - text: "\"In the U.S., however,"
+      - link "informatics":
+        - /url: https://en.wikipedia.org/wiki/Informatics
+      - text: is linked with applied computing, or computing in the context of another domain."
+      - superscript:
+        - link "[48]":
+          - /url: "#cite_note-50"
+    - paragraph:
+      - text: A folkloric quotation, often attributed to—but almost certainly not first formulated by—
+      - link "Edsger Dijkstra":
+        - /url: https://en.wikipedia.org/wiki/Edsger_Dijkstra
+      - text: ", states that \"computer science is no more about computers than astronomy is about telescopes.\""
+      - superscript:
+        - link "[note 3]":
+          - /url: "#cite_note-51"
+      - text: The design and deployment of computers and computer systems is generally considered the province of disciplines other than computer science. For example, the study of computer hardware is usually considered part of
+      - link "computer engineering":
+        - /url: https://en.wikipedia.org/wiki/Computer_engineering
+      - text: ", while the study of commercial"
+      - link "computer systems":
+        - /url: https://en.wikipedia.org/wiki/Computer_system
+      - text: and their deployment is often called information technology or
+      - link "information systems":
+        - /url: https://en.wikipedia.org/wiki/Information_system
+      - text: . However, there has been exchange of ideas between the various computer-related disciplines. Computer science research also often intersects other disciplines, such as
+      - link "cognitive science":
+        - /url: https://en.wikipedia.org/wiki/Cognitive_science
+      - text: ","
+      - link "linguistics":
+        - /url: https://en.wikipedia.org/wiki/Computational_linguistics
+      - text: ","
+      - link "mathematics":
+        - /url: https://en.wikipedia.org/wiki/Mathematics
+      - text: ","
+      - link "physics":
+        - /url: https://en.wikipedia.org/wiki/Physics
+      - text: ","
+      - link "biology":
+        - /url: https://en.wikipedia.org/wiki/Biology
+      - text: ","
+      - link "Earth science":
+        - /url: https://en.wikipedia.org/wiki/Earth_science
+      - text: ","
+      - link "statistics":
+        - /url: https://en.wikipedia.org/wiki/Computational_statistics
+      - text: ","
+      - link "philosophy":
+        - /url: https://en.wikipedia.org/wiki/Philosophy
+      - text: ", and"
+      - link "logic":
+        - /url: https://en.wikipedia.org/wiki/Logic
+      - text: .
+    - paragraph:
+      - text: Computer science is considered by some to have a much closer relationship with mathematics than many scientific disciplines, with some observers saying that computing is a mathematical science.
+      - superscript:
+        - link "[35]":
+          - /url: "#cite_note-Denning-37"
+      - text: Early computer science was strongly influenced by the work of mathematicians such as
+      - link "Kurt Gödel":
+        - /url: https://en.wikipedia.org/wiki/Kurt_Gödel
+      - text: ","
+      - link "Alan Turing":
+        - /url: https://en.wikipedia.org/wiki/Alan_Turing
+      - text: ","
+      - link "John von Neumann":
+        - /url: https://en.wikipedia.org/wiki/John_von_Neumann
+      - text: ","
+      - link "Rózsa Péter":
+        - /url: https://en.wikipedia.org/wiki/Rózsa_Péter
+      - text: ","
+      - link "Stephen Kleene":
+        - /url: https://en.wikipedia.org/wiki/Stephen_Cole_Kleene
+      - text: ", and"
+      - link "Alonzo Church":
+        - /url: https://en.wikipedia.org/wiki/Alonzo_Church
+      - text: and there continues to be a useful interchange of ideas between the two fields in areas such as
+      - link "mathematical logic":
+        - /url: https://en.wikipedia.org/wiki/Mathematical_logic
+      - text: ","
+      - link "category theory":
+        - /url: https://en.wikipedia.org/wiki/Category_theory
+      - text: ","
+      - link "domain theory":
+        - /url: https://en.wikipedia.org/wiki/Domain_theory
+      - text: ", and"
+      - link "algebra":
+        - /url: https://en.wikipedia.org/wiki/Algebra
+      - text: .
+      - superscript:
+        - link "[38]":
+          - /url: "#cite_note-Tedre2014-40"
+    - paragraph:
+      - text: The relationship between computer science and
+      - link "software engineering":
+        - /url: https://en.wikipedia.org/wiki/Software_engineering
+      - text: is a contentious issue, which is further muddied by
+      - link "disputes":
+        - /url: https://en.wikipedia.org/wiki/Software_engineering#Suitability
+      - text: over what the term "software engineering" means, and how computer science is defined.
+      - superscript:
+        - link "[49]":
+          - /url: "#cite_note-52"
+      - link "David Parnas":
+        - /url: https://en.wikipedia.org/wiki/David_Parnas
+      - text: ", taking a cue from the relationship between other engineering and science disciplines, has claimed that the principal focus of computer science is studying the properties of computation in general, while the principal focus of software engineering is the design of specific computations to achieve practical goals, making the two separate but complementary disciplines."
+      - superscript:
+        - link "[50]":
+          - /url: "#cite_note-53"
+    - paragraph:
+      - text: The academic, political, and funding aspects of computer science tend to depend on whether a department is formed with a mathematical emphasis or with an engineering emphasis. Computer science departments with a mathematics emphasis and with a numerical orientation consider alignment with
+      - link "computational science":
+        - /url: https://en.wikipedia.org/wiki/Computational_science
+      - text: . Both types of departments tend to make efforts to bridge the field educationally if not across all research.
+  - region "Philosophy":
+    - heading "Philosophy" [level=2]
+    - note:
+      - text: "Main article:"
+      - link "Philosophy of computer science":
+        - /url: https://en.wikipedia.org/wiki/Philosophy_of_computer_science
+    - region "Epistemology of computer science":
+      - heading "Epistemology of computer science" [level=3]
+      - paragraph:
+        - text: Despite the word science in its name, there is debate over whether or not computer science is a discipline of science,
+        - superscript:
+          - link "[51]":
+            - /url: "#cite_note-Luk20-54"
+        - text: mathematics,
+        - superscript:
+          - link "[52]":
+            - /url: "#cite_note-Knuth74-55"
+        - text: or engineering.
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+        - link "Allen Newell":
+          - /url: https://en.wikipedia.org/wiki/Allen_Newell
+        - text: and
+        - link "Herbert A. Simon":
+          - /url: https://en.wikipedia.org/wiki/Herbert_A._Simon
+        - text: argued in 1975,
+      - blockquote:
+        - paragraph:
+          - text: Computer science is an empirical discipline. We would have called it an experimental science, but like astronomy, economics, and geology, some of its unique forms of observation and experience do not fit a narrow stereotype of the experimental method. Nonetheless, they are experiments. Each new machine that is built is an experiment. Actually constructing the machine poses a question to nature; and we listen for the answer by observing the machine in operation and analyzing it by all analytical and measurement means available.
+          - superscript:
+            - link "[53]":
+              - /url: "#cite_note-plato-56"
+      - paragraph:
+        - text: It has since been argued that computer science can be classified as an
+        - link "empirical science":
+          - /url: https://en.wikipedia.org/wiki/Empirical_science
+        - text: since it makes use of empirical testing to evaluate the
+        - link "correctness of programs":
+          - /url: https://en.wikipedia.org/wiki/Correctness_(computer_science)
+        - text: ", but a problem remains in defining the laws and theorems of computer science (if any exist) and defining the nature of experiments in computer science."
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+        - text: Proponents of classifying computer science as an engineering discipline argue that the reliability of computational systems is investigated in the same way as bridges in
+        - link "civil engineering":
+          - /url: https://en.wikipedia.org/wiki/Civil_engineering
+        - text: and airplanes in
+        - link "aerospace engineering":
+          - /url: https://en.wikipedia.org/wiki/Aerospace_engineering
+        - text: .
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+        - text: They also argue that while empirical sciences observe what presently exists, computer science observes what is possible to exist and while scientists discover laws from observation, no proper laws have been found in computer science and it is instead concerned with creating phenomena.
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+      - paragraph:
+        - text: Proponents of classifying computer science as a mathematical discipline argue that computer programs are physical realizations of mathematical entities and programs that can be
+        - link "deductively reasoned":
+          - /url: https://en.wikipedia.org/wiki/Deductive_reasoning
+        - text: through mathematical
+        - link "formal methods":
+          - /url: https://en.wikipedia.org/wiki/Formal_methods
+        - text: .
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+        - text: Computer scientists
+        - link "Edsger W. Dijkstra":
+          - /url: https://en.wikipedia.org/wiki/Edsger_W._Dijkstra
+        - text: and
+        - link "Tony Hoare":
+          - /url: https://en.wikipedia.org/wiki/Tony_Hoare
+        - text: regard instructions for computer programs as mathematical sentences and interpret formal semantics for programming languages as mathematical
+        - link "axiomatic systems":
+          - /url: https://en.wikipedia.org/wiki/Axiomatic_system
+        - text: .
+        - superscript:
+          - link "[53]":
+            - /url: "#cite_note-plato-56"
+    - region "Paradigms of computer science":
+      - heading "Paradigms of computer science" [level=3]
+      - paragraph:
+        - text: A number of computer scientists have argued for the distinction of three separate paradigms in computer science.
+        - link "Peter Wegner":
+          - /url: https://en.wikipedia.org/wiki/Peter_Wegner_(computer_scientist)
+        - text: argued that those paradigms are science, technology, and mathematics.
+        - superscript:
+          - link "[54]":
+            - /url: "#cite_note-57"
+        - link "Peter Denning":
+          - /url: https://en.wikipedia.org/wiki/Peter_J._Denning
+        - text: "'s working group argued that they are theory, abstraction (modeling), and design."
+        - superscript:
+          - link "[35]":
+            - /url: "#cite_note-Denning-37"
+        - text: Amnon H. Eden described them as the "rationalist paradigm" (which treats computer science as a branch of mathematics, which is prevalent in theoretical computer science, and mainly employs deductive reasoning), the "technocratic paradigm" (which might be found in engineering approaches, most prominently in software engineering), and the "scientific paradigm" (which approaches computer-related artifacts from the empirical perspective of
+        - link "natural sciences":
+          - /url: https://en.wikipedia.org/wiki/Natural_science
+        - text: ","
+        - superscript:
+          - link "[55]":
+            - /url: "#cite_note-denning07-58"
+        - text: identifiable in some branches of
+        - link "artificial intelligence":
+          - /url: https://en.wikipedia.org/wiki/Artificial_intelligence
+        - text: ).
+        - superscript:
+          - link "[56]":
+            - /url: "#cite_note-59"
+        - text: Computer science focuses on methods involved in design, specification, programming, verification, implementation and testing of human-made computing systems.
+        - superscript:
+          - link "[57]":
+            - /url: "#cite_note-60"
+  - region "Fields":
+    - heading "Fields" [level=2]
+    - note:
+      - text: This is a
+      - link "dynamic list":
+        - /url: https://en.wikipedia.org/wiki/Wikipedia:WikiProject_Lists#Dynamic_lists
+      - text: and may never be able to satisfy particular standards for completeness. You can help by
+      - link "editing the page":
+        - /url: https://en.wikipedia.org/wiki/Special:EditPage/Computer_science
+      - text: to add missing items, with references to
+      - link "reliable sources":
+        - /url: https://en.wikipedia.org/wiki/Wikipedia:Reliable_sources
+      - text: .
+    - note:
+      - text: "Further information:"
+      - link "Outline of computer science":
+        - /url: https://en.wikipedia.org/wiki/Outline_of_computer_science
+    - paragraph:
+      - text: As a discipline, computer science spans a range of topics from theoretical studies of algorithms and the limits of computation to the practical issues of implementing computing systems in hardware and software.
+      - superscript:
+        - link "[58]":
+          - /url: "#cite_note-CSAB1997-61"
+      - superscript:
+        - link "[59]":
+          - /url: "#cite_note-62"
+      - link "CSAB":
+        - /url: https://en.wikipedia.org/wiki/CSAB_(professional_organization)
+      - text: ", formerly called Computing Sciences Accreditation Board—which is made up of representatives of the"
+      - link "Association for Computing Machinery":
+        - /url: https://en.wikipedia.org/wiki/Association_for_Computing_Machinery
+      - text: (ACM), and the
+      - link "IEEE Computer Society":
+        - /url: https://en.wikipedia.org/wiki/IEEE_Computer_Society
+      - text: (IEEE CS)
+      - superscript:
+        - link "[60]":
+          - /url: "#cite_note-63"
+      - text: "—identifies four areas that it considers crucial to the discipline of computer science: theory of computation, algorithms and data structures, programming methodology and languages, and computer elements and architecture. In addition to these four areas, CSAB also identifies fields such as software engineering, artificial intelligence, computer networking and communication, database systems, parallel computation, distributed computation, human–computer interaction, computer graphics, operating systems, and numerical and"
+      - link "symbolic computation":
+        - /url: https://en.wikipedia.org/wiki/Symbolic_computation
+      - text: as being important areas of computer science.
+      - superscript:
+        - link "[58]":
+          - /url: "#cite_note-CSAB1997-61"
+    - region "Theoretical computer science":
+      - heading "Theoretical computer science" [level=3]
+      - note:
+        - text: "Main article:"
+        - link "Theoretical computer science":
+          - /url: https://en.wikipedia.org/wiki/Theoretical_computer_science
+      - paragraph: Theoretical computer science is mathematical and abstract in spirit, but it derives its motivation from practical and everyday computation. It aims to understand the nature of computation and, as a consequence of this understanding, provide more efficient methodologies.
+      - region "Theory of computation":
+        - heading "Theory of computation" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Theory of computation":
+            - /url: https://en.wikipedia.org/wiki/Theory_of_computation
+        - paragraph:
+          - text: According to Peter Denning, the fundamental question underlying computer science is, "What can be automated?"
+          - superscript:
+            - link "[3]":
+              - /url: "#cite_note-DenningAutomated-3"
+          - text: Theory of computation is focused on answering fundamental questions about what can be computed and what amount of resources are required to perform those computations. In an effort to answer the first question,
+          - link "computability theory":
+            - /url: https://en.wikipedia.org/wiki/Computability_theory
+          - text: examines which computational problems are solvable on various theoretical
+          - link "models of computation":
+            - /url: https://en.wikipedia.org/wiki/Models_of_computation
+          - text: . The second question is addressed by
+          - link "computational complexity theory":
+            - /url: https://en.wikipedia.org/wiki/Computational_complexity_theory
+          - text: ", which studies the time and space costs associated with different approaches to solving a multitude of computational problems."
+        - paragraph:
+          - text: The famous
+          - link "P = NP?":
+            - /url: https://en.wikipedia.org/wiki/P_=_NP%3F
+          - text: problem, one of the
+          - link "Millennium Prize Problems":
+            - /url: https://en.wikipedia.org/wiki/Millennium_Prize_Problems
+          - text: ","
+          - superscript:
+            - link "[61]":
+              - /url: "#cite_note-64"
+          - text: is an
+          - link "open problem":
+            - /url: https://en.wikipedia.org/wiki/Open_problem
+          - text: in the theory of computation.
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:DFAexample.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Syntax_tree.svg
+                  - img
+              - cell:
+                - math: "M = { X : X ∉ X }"
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Complexity_classes.svg
+                  - img
+            - row "Automata theory Formal languages Computability theory Computational complexity theory":
+              - cell "Automata theory":
+                - link "Automata theory":
+                  - /url: https://en.wikipedia.org/wiki/Automata_theory
+              - cell "Formal languages":
+                - link "Formal languages":
+                  - /url: https://en.wikipedia.org/wiki/Formal_language
+              - cell "Computability theory":
+                - link "Computability theory":
+                  - /url: https://en.wikipedia.org/wiki/Computability_theory
+              - cell "Computational complexity theory":
+                - link "Computational complexity theory":
+                  - /url: https://en.wikipedia.org/wiki/Computational_complexity_theory
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Interaction_Net_as_Configuration.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Blochsphere.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:XNOR_ANSI_Labelled.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Kellerautomat.svg
+                  - img
+            - row "Models of computation Quantum computing theory Logic circuit theory Cellular automata":
+              - cell "Models of computation":
+                - link "Models of computation":
+                  - /url: https://en.wikipedia.org/wiki/Models_of_computation
+              - cell "Quantum computing theory":
+                - link "Quantum computing theory":
+                  - /url: https://en.wikipedia.org/wiki/Quantum_computer
+              - cell "Logic circuit theory":
+                - link "Logic circuit theory":
+                  - /url: https://en.wikipedia.org/wiki/Circuit_(computer_science)
+              - cell "Cellular automata":
+                - link "Cellular automata":
+                  - /url: https://en.wikipedia.org/wiki/Cellular_automata
+      - region "Information and coding theory":
+        - heading "Information and coding theory" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Information theory":
+            - /url: https://en.wikipedia.org/wiki/Information_theory
+          - text: and
+          - link "Coding theory":
+            - /url: https://en.wikipedia.org/wiki/Coding_theory
+        - paragraph:
+          - text: Information theory, closely related to
+          - link "probability":
+            - /url: https://en.wikipedia.org/wiki/Probability
+          - text: and
+          - link "statistics":
+            - /url: https://en.wikipedia.org/wiki/Statistics
+          - text: ", is related to the quantification of information. This was developed by"
+          - link "Claude Shannon":
+            - /url: https://en.wikipedia.org/wiki/Claude_Shannon
+          - text: to find fundamental limits on
+          - link "signal processing":
+            - /url: https://en.wikipedia.org/wiki/Signal_processing
+          - text: operations such as compressing data and on reliably storing and communicating data.
+          - superscript:
+            - link "[62]":
+              - /url: "#cite_note-65"
+          - text: Coding theory is the study of the properties of
+          - link "codes":
+            - /url: https://en.wikipedia.org/wiki/Code
+          - text: (systems for converting information from one form to another) and their fitness for a specific application. Codes are used for
+          - link "data compression":
+            - /url: https://en.wikipedia.org/wiki/Data_compression
+          - text: ","
+          - link "cryptography":
+            - /url: https://en.wikipedia.org/wiki/Cryptography
+          - text: ","
+          - link "error detection and correction":
+            - /url: https://en.wikipedia.org/wiki/Error_detection_and_correction
+          - text: ", and more recently also for"
+          - link "network coding":
+            - /url: https://en.wikipedia.org/wiki/Network_coding
+          - text: . Codes are studied for the purpose of designing efficient and reliable
+          - link "data transmission":
+            - /url: https://en.wikipedia.org/wiki/Data_transmission
+          - text: methods.
+          - superscript:
+            - link "[63]":
+              - /url: "#cite_note-66"
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Two-dimensional_visualization_of_Hamming_distance.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Binary_symmetric_channel.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Digitalteilchen.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:H0_h1_fehler.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Mandelpart2_red.png
+                  - img
+            - row "Coding theory Channel capacity Algorithmic information theory Signal detection theory Kolmogorov complexity":
+              - cell "Coding theory":
+                - link "Coding theory":
+                  - /url: https://en.wikipedia.org/wiki/Coding_theory
+              - cell "Channel capacity":
+                - link "Channel capacity":
+                  - /url: https://en.wikipedia.org/wiki/Channel_capacity
+              - cell "Algorithmic information theory":
+                - link "Algorithmic information theory":
+                  - /url: https://en.wikipedia.org/wiki/Algorithmic_information_theory
+              - cell "Signal detection theory":
+                - link "Signal detection theory":
+                  - /url: https://en.wikipedia.org/wiki/Signal_detection_theory
+              - cell "Kolmogorov complexity":
+                - link "Kolmogorov complexity":
+                  - /url: https://en.wikipedia.org/wiki/Kolmogorov_complexity
+      - region "Data structures and algorithms":
+        - heading "Data structures and algorithms" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Data structure":
+            - /url: https://en.wikipedia.org/wiki/Data_structure
+          - text: ","
+          - link "Algorithm":
+            - /url: https://en.wikipedia.org/wiki/Algorithm
+          - text: ", and"
+          - link "Outline of algorithms":
+            - /url: https://en.wikipedia.org/wiki/Outline_of_algorithms
+        - paragraph: Data structures and algorithms are the studies of commonly used computational methods and their computational efficiency.
+        - table:
+          - rowgroup:
+            - row "O(n2)":
+              - cell "O(n2)":
+                - text: O(n
+                - superscript: "2"
+                - text: )
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Sorting_quicksort_anim.gif
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Tree_(computer_science).svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:TSP_Deutschland_3.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:SimplexRangeSearching.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Contraction_vertices.jpg
+                  - img
+            - row "Analysis of algorithms Algorithm design Data structures Combinatorial optimization Computational geometry Randomized algorithms":
+              - cell "Analysis of algorithms":
+                - link "Analysis of algorithms":
+                  - /url: https://en.wikipedia.org/wiki/Analysis_of_algorithms
+              - cell "Algorithm design":
+                - link "Algorithm design":
+                  - /url: https://en.wikipedia.org/wiki/Algorithmics
+              - cell "Data structures":
+                - link "Data structures":
+                  - /url: https://en.wikipedia.org/wiki/Data_structures
+              - cell "Combinatorial optimization":
+                - link "Combinatorial optimization":
+                  - /url: https://en.wikipedia.org/wiki/Combinatorial_optimization
+              - cell "Computational geometry":
+                - link "Computational geometry":
+                  - /url: https://en.wikipedia.org/wiki/Computational_geometry
+              - cell "Randomized algorithms":
+                - link "Randomized algorithms":
+                  - /url: https://en.wikipedia.org/wiki/Randomized_algorithms
+      - region "Programming language theory and formal methods":
+        - heading "Programming language theory and formal methods" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Programming language theory":
+            - /url: https://en.wikipedia.org/wiki/Programming_language_theory
+          - text: and
+          - link "Formal methods":
+            - /url: https://en.wikipedia.org/wiki/Formal_methods
+        - paragraph:
+          - text: Programming language theory is a branch of computer science that deals with the design, implementation, analysis, characterization, and classification of
+          - link "programming languages":
+            - /url: https://en.wikipedia.org/wiki/Programming_language
+          - text: and their individual
+          - link "features":
+            - /url: https://en.wikipedia.org/wiki/Programming_language#Elements
+          - text: . It falls within the discipline of computer science, both depending on and affecting mathematics, software engineering, and
+          - link "linguistics":
+            - /url: https://en.wikipedia.org/wiki/Linguistics
+          - text: . It is an active research area, with numerous dedicated academic journals.
+        - paragraph:
+          - text: Formal methods are a particular kind of mathematically based technique for the
+          - link "specification":
+            - /url: https://en.wikipedia.org/wiki/Formal_specification
+          - text: ", development and"
+          - link "verification":
+            - /url: https://en.wikipedia.org/wiki/Formal_verification
+          - text: of software and
+          - link "hardware":
+            - /url: https://en.wikipedia.org/wiki/Computer_hardware
+          - text: systems.
+          - superscript:
+            - link "[64]":
+              - /url: "#cite_note-67"
+          - text: The use of formal methods for software and hardware design is motivated by the expectation that, as in other engineering disciplines, performing appropriate mathematical analysis can contribute to the reliability and robustness of a design. They form an important theoretical underpinning for software engineering, especially where safety or security is involved. Formal methods are a useful adjunct to software testing since they help avoid errors and can also give a framework for testing. For industrial use, tool support is required. However, the high cost of using formal methods means that they are usually only used in the development of high-integrity and
+          - link "life-critical systems":
+            - /url: https://en.wikipedia.org/wiki/Life-critical_system
+          - text: ", where safety or"
+          - link "security":
+            - /url: https://en.wikipedia.org/wiki/Computer_security
+          - text: is of utmost importance. Formal methods are best described as the application of a fairly broad variety of
+          - link "theoretical computer science":
+            - /url: https://en.wikipedia.org/wiki/Theoretical_computer_science
+          - text: fundamentals, in particular
+          - link "logic":
+            - /url: https://en.wikipedia.org/wiki/Logic_in_computer_science
+          - text: calculi,
+          - link "formal languages":
+            - /url: https://en.wikipedia.org/wiki/Formal_language
+          - text: ","
+          - link "automata theory":
+            - /url: https://en.wikipedia.org/wiki/Automata_theory
+          - text: ", and"
+          - link "program semantics":
+            - /url: https://en.wikipedia.org/wiki/Program_semantics
+          - text: ", but also"
+          - link "type systems":
+            - /url: https://en.wikipedia.org/wiki/Type_systems
+          - text: and
+          - link "algebraic data types":
+            - /url: https://en.wikipedia.org/wiki/Algebraic_data_types
+          - text: to problems in software and hardware specification and verification.
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:IF-THEN-ELSE-END_flowchart.svg
+                  - img
+              - cell:
+                - math: "Γ ⊢ x : Int"
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Compiler.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Python_add5_syntax.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Prop-tableau-1.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Coq_plus_comm_screenshot.jpg
+                  - img
+            - row "Formal semantics Type theory Compiler design Programming languages Formal verification Automated theorem proving":
+              - cell "Formal semantics":
+                - link "Formal semantics":
+                  - /url: https://en.wikipedia.org/wiki/Semantics_(computer_science)
+              - cell "Type theory":
+                - link "Type theory":
+                  - /url: https://en.wikipedia.org/wiki/Type_theory
+              - cell "Compiler design":
+                - link "Compiler design":
+                  - /url: https://en.wikipedia.org/wiki/Compiler_design
+              - cell "Programming languages":
+                - link "Programming languages":
+                  - /url: https://en.wikipedia.org/wiki/Programming_language
+              - cell "Formal verification":
+                - link "Formal verification":
+                  - /url: https://en.wikipedia.org/wiki/Formal_verification
+              - cell "Automated theorem proving":
+                - link "Automated theorem proving":
+                  - /url: https://en.wikipedia.org/wiki/Automated_theorem_proving
+    - region "Applied computer science":
+      - heading "Applied computer science" [level=3]
+      - region "Computer graphics and visualization":
+        - heading "Computer graphics and visualization" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Computer graphics (computer science)":
+            - /url: https://en.wikipedia.org/wiki/Computer_graphics_(computer_science)
+        - paragraph:
+          - text: Computer graphics is the study of digital visual contents and involves the synthesis and manipulation of image data. The study is connected to many other fields in computer science, including
+          - link "computer vision":
+            - /url: https://en.wikipedia.org/wiki/Computer_vision
+          - text: ","
+          - link "image processing":
+            - /url: https://en.wikipedia.org/wiki/Image_processing
+          - text: ", and"
+          - link "computational geometry":
+            - /url: https://en.wikipedia.org/wiki/Computational_geometry
+          - text: ", and is heavily applied in the fields of special effects and"
+          - link "video games":
+            - /url: https://en.wikipedia.org/wiki/Video_game
+          - text: .
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Simx2=transl_OK.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:FWDvsINV_Kinematics_HighResTransp.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:5-cell.gif
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Hud_on_the_cat.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Visible_light_eye-tracking_algorithm.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Csg_tree.png
+                  - img
+            - row "2D computer graphics Computer animation Rendering Mixed reality Virtual reality Solid modeling":
+              - cell "2D computer graphics":
+                - link "2D computer graphics":
+                  - /url: https://en.wikipedia.org/wiki/2D_computer_graphics
+              - cell "Computer animation":
+                - link "Computer animation":
+                  - /url: https://en.wikipedia.org/wiki/Computer_animation
+              - cell "Rendering":
+                - link "Rendering":
+                  - /url: https://en.wikipedia.org/wiki/Rendering_(computer_graphics)
+              - cell "Mixed reality":
+                - link "Mixed reality":
+                  - /url: https://en.wikipedia.org/wiki/Mixed_reality
+              - cell "Virtual reality":
+                - link "Virtual reality":
+                  - /url: https://en.wikipedia.org/wiki/Virtual_reality
+              - cell "Solid modeling":
+                - link "Solid modeling":
+                  - /url: https://en.wikipedia.org/wiki/Solid_modeling
+      - region "Image and sound processing":
+        - heading "Image and sound processing" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Data processing":
+            - /url: https://en.wikipedia.org/wiki/Data_processing
+        - paragraph:
+          - link "Information":
+            - /url: https://en.wikipedia.org/wiki/Information
+          - text: can take the form of images, sound, video or other multimedia.
+          - link "Bits":
+            - /url: https://en.wikipedia.org/wiki/Bit
+          - text: of information can be streamed via
+          - link "signals":
+            - /url: https://en.wikipedia.org/wiki/Signal
+          - text: . Its
+          - link "processing":
+            - /url: https://en.wikipedia.org/wiki/Data_processing
+          - text: is the central notion of informatics, the European view on computing, which studies information processing algorithms independently of the type of information carrier – whether it is electrical, mechanical or biological. This field plays important role in
+          - link "information theory":
+            - /url: https://en.wikipedia.org/wiki/Information_theory
+          - text: ","
+          - link "telecommunications":
+            - /url: https://en.wikipedia.org/wiki/Telecommunications
+          - text: ","
+          - link "information engineering":
+            - /url: https://en.wikipedia.org/wiki/Information_engineering
+          - text: and has applications in
+          - link "medical image computing":
+            - /url: https://en.wikipedia.org/wiki/Medical_image_computing
+          - text: and
+          - link "speech synthesis":
+            - /url: https://en.wikipedia.org/wiki/Speech_synthesis
+          - text: ", among others. What is the lower bound on the complexity of"
+          - link "fast Fourier transform":
+            - /url: https://en.wikipedia.org/wiki/Fast_Fourier_transform
+          - text: algorithms? is one of the
+          - link "unsolved problems in theoretical computer science":
+            - /url: https://en.wikipedia.org/wiki/List_of_unsolved_problems_in_computer_science
+          - text: .
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:DIT-FFT-butterfly.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Bayer_pattern_on_sensor.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Opus_quality_comparison_colorblind_compatible.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Quality_comparison_jpg_vs_saveforweb.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:MeningiomaMRISegmentation.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Ætoms_-_Translation.svg
+                  - img
+            - row "FFT algorithms Image processing Speech recognition Data compression Medical image computing Speech synthesis":
+              - cell "FFT algorithms":
+                - link "FFT algorithms":
+                  - /url: https://en.wikipedia.org/wiki/Fast_Fourier_transform
+              - cell "Image processing":
+                - link "Image processing":
+                  - /url: https://en.wikipedia.org/wiki/Image_processing
+              - cell "Speech recognition":
+                - link "Speech recognition":
+                  - /url: https://en.wikipedia.org/wiki/Speech_recognition
+              - cell "Data compression":
+                - link "Data compression":
+                  - /url: https://en.wikipedia.org/wiki/Data_compression
+              - cell "Medical image computing":
+                - link "Medical image computing":
+                  - /url: https://en.wikipedia.org/wiki/Medical_image_computing
+              - cell "Speech synthesis":
+                - link "Speech synthesis":
+                  - /url: https://en.wikipedia.org/wiki/Speech_synthesis
+      - region "Computational science, finance and engineering":
+        - heading "Computational science, finance and engineering" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Computational science":
+            - /url: https://en.wikipedia.org/wiki/Computational_science
+          - text: ","
+          - link "Computational finance":
+            - /url: https://en.wikipedia.org/wiki/Computational_finance
+          - text: ","
+          - link "Computational engineering":
+            - /url: https://en.wikipedia.org/wiki/Computational_engineering
+          - text: ", and"
+          - link "Computational biology":
+            - /url: https://en.wikipedia.org/wiki/Computational_biology
+        - note:
+          - text: "See also:"
+          - link "List of computer-aided engineering software":
+            - /url: https://en.wikipedia.org/wiki/List_of_computer-aided_engineering_software
+        - paragraph:
+          - link "Scientific computing":
+            - /url: https://en.wikipedia.org/wiki/Scientific_computing
+          - text: (or computational science) is the field of study concerned with constructing
+          - link "mathematical models":
+            - /url: https://en.wikipedia.org/wiki/Scientific_modelling
+          - text: and
+          - link "quantitative analysis":
+            - /url: https://en.wikipedia.org/wiki/Numerical_analysis
+          - text: techniques and using computers to analyze and solve
+          - link "scientific":
+            - /url: https://en.wikipedia.org/wiki/Scientific
+          - text: problems. A major usage of scientific computing is
+          - link "simulation":
+            - /url: https://en.wikipedia.org/wiki/Simulation
+          - text: of various processes, including computational
+          - link "fluid dynamics":
+            - /url: https://en.wikipedia.org/wiki/Fluid_dynamics
+          - text: ", physical, electrical, and electronic systems and circuits, societies and social situations (notably war games) along with their habitats, and interactions among biological cells. Modern computers enable optimization of such designs as complete aircraft. Notable in electrical and electronic circuit design are SPICE,"
+          - superscript:
+            - link "[65]":
+              - /url: "#cite_note-68"
+          - text: as well as software for physical realization of new (or modified) designs. The latter includes essential design software for
+          - link "integrated circuits":
+            - /url: https://en.wikipedia.org/wiki/Integrated_circuit
+          - text: .
+          - superscript:
+            - link "[66]":
+              - /url: "#cite_note-69"
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Lorenz_attractor_yb.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Quark_wiki.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Naphthalene-3D-balls.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:1u04-argonaute.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:GalvesLocherbach_-_Low_resolution.gif
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Plutchik-wheel.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:X-ray_of_hand,_where_bone_age_is_automatically_found_by_BoneXpert_software.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Elmer-pump-heatequation.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Bachlut1.png
+                  - img
+            - row "Numerical analysis Computational physics Computational chemistry Bioinformatics Neuroinformatics Psychoinformatics Medical informatics Computational engineering Computational musicology":
+              - cell "Numerical analysis":
+                - link "Numerical analysis":
+                  - /url: https://en.wikipedia.org/wiki/Numerical_analysis
+              - cell "Computational physics":
+                - link "Computational physics":
+                  - /url: https://en.wikipedia.org/wiki/Computational_physics
+              - cell "Computational chemistry":
+                - link "Computational chemistry":
+                  - /url: https://en.wikipedia.org/wiki/Computational_chemistry
+              - cell "Bioinformatics":
+                - link "Bioinformatics":
+                  - /url: https://en.wikipedia.org/wiki/Bioinformatics
+              - cell "Neuroinformatics":
+                - link "Neuroinformatics":
+                  - /url: https://en.wikipedia.org/wiki/Neuroinformatics
+              - cell "Psychoinformatics":
+                - link "Psychoinformatics":
+                  - /url: https://en.wikipedia.org/wiki/Psychoinformatics
+              - cell "Medical informatics":
+                - link "Medical informatics":
+                  - /url: https://en.wikipedia.org/wiki/Medical_informatics
+              - cell "Computational engineering":
+                - link "Computational engineering":
+                  - /url: https://en.wikipedia.org/wiki/Computational_engineering
+              - cell "Computational musicology":
+                - link "Computational musicology":
+                  - /url: https://en.wikipedia.org/wiki/Computational_musicology
+      - region "Human–computer interaction":
+        - heading "Human–computer interaction" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Human–computer interaction":
+            - /url: https://en.wikipedia.org/wiki/Human–computer_interaction
+        - paragraph:
+          - text: Human–computer interaction (HCI) is the field of study and research concerned with the design and use of
+          - link "computer systems":
+            - /url: https://en.wikipedia.org/wiki/Computer
+          - text: ", mainly based on the analysis of the interaction between"
+          - link "humans":
+            - /url: https://en.wikipedia.org/wiki/Human
+          - text: and
+          - link "computer interfaces":
+            - /url: https://en.wikipedia.org/wiki/Interface_(computing)
+          - text: . HCI has several
+          - link "subfields":
+            - /url: https://en.wikipedia.org/wiki/Human–computer_interaction#Current_research
+          - text: that focus on the relationship between
+          - link "emotions":
+            - /url: https://en.wikipedia.org/wiki/Emotion
+          - text: ","
+          - link "social behavior":
+            - /url: https://en.wikipedia.org/wiki/Social_behavior
+          - text: and
+          - link "brain activity":
+            - /url: https://en.wikipedia.org/wiki/Electroencephalography
+          - text: with computers.
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Maker_Faire,_Berlin_(BL7C0099).jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:InterfaceNeuronaleDirecte-tag.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Human-Centered_Design-Prozess_nach_HBS.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Physical_computing.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:WMID_social_media_network.png
+                  - img
+            - row "Affective computing Brain–computer interface Human-centered design Physical computing Social computing":
+              - cell "Affective computing":
+                - link "Affective computing":
+                  - /url: https://en.wikipedia.org/wiki/Affective_computing
+              - cell "Brain–computer interface":
+                - link "Brain–computer interface":
+                  - /url: https://en.wikipedia.org/wiki/Brain–computer_interface
+              - cell "Human-centered design":
+                - link "Human-centered design":
+                  - /url: https://en.wikipedia.org/wiki/Human-centered_design
+              - cell "Physical computing":
+                - link "Physical computing":
+                  - /url: https://en.wikipedia.org/wiki/Physical_computing
+              - cell "Social computing":
+                - link "Social computing":
+                  - /url: https://en.wikipedia.org/wiki/Social_computing
+      - region "Software engineering":
+        - heading "Software engineering" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Software engineering":
+            - /url: https://en.wikipedia.org/wiki/Software_engineering
+        - note:
+          - text: "See also:"
+          - link "Computer programming":
+            - /url: https://en.wikipedia.org/wiki/Computer_programming
+        - paragraph:
+          - text: Software engineering is the study of designing, implementing, and modifying the software in order to ensure it is of high quality, affordable, maintainable, and fast to build. It is a systematic approach to software design, involving the application of engineering practices to software. Software engineering deals with the organizing and analyzing of software—it does not just deal with the creation or manufacture of new software, but its internal arrangement and maintenance. For example
+          - link "software testing":
+            - /url: https://en.wikipedia.org/wiki/Software_testing
+          - text: ","
+          - link "systems engineering":
+            - /url: https://en.wikipedia.org/wiki/Systems_engineering
+          - text: ","
+          - link "technical debt":
+            - /url: https://en.wikipedia.org/wiki/Technical_debt
+          - text: and
+          - link "software development processes":
+            - /url: https://en.wikipedia.org/wiki/Software_development_process
+          - text: .
+      - region "Artificial intelligence":
+        - heading "Artificial intelligence" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Artificial intelligence":
+            - /url: https://en.wikipedia.org/wiki/Artificial_intelligence
+          - text: and
+          - link "Bio-inspired computing":
+            - /url: https://en.wikipedia.org/wiki/Bio-inspired_computing
+        - paragraph:
+          - text: Artificial intelligence (AI) aims to or is required to synthesize goal-orientated processes such as problem-solving, decision-making, environmental adaptation, learning, and communication found in humans and animals. From its origins in
+          - link "cybernetics":
+            - /url: https://en.wikipedia.org/wiki/Cybernetics
+          - text: and in the
+          - link "Dartmouth Conference":
+            - /url: https://en.wikipedia.org/wiki/History_of_artificial_intelligence
+          - text: (1956), artificial intelligence research has been necessarily cross-disciplinary, drawing on areas of expertise such as
+          - link "applied mathematics":
+            - /url: https://en.wikipedia.org/wiki/Applied_mathematics
+          - text: ", symbolic logic,"
+          - link "semiotics":
+            - /url: https://en.wikipedia.org/wiki/Semiotics
+          - text: ","
+          - link "electrical engineering":
+            - /url: https://en.wikipedia.org/wiki/Electrical_engineering
+          - text: ","
+          - link "philosophy of mind":
+            - /url: https://en.wikipedia.org/wiki/Philosophy_of_mind
+          - text: ","
+          - link "neurophysiology":
+            - /url: https://en.wikipedia.org/wiki/Neurophysiology
+          - text: ", and"
+          - link "social intelligence":
+            - /url: https://en.wikipedia.org/wiki/Social_intelligence
+          - text: . AI is associated in the popular mind with
+          - link "robotic development":
+            - /url: https://en.wikipedia.org/wiki/Robotics
+          - text: ", but the main field of practical application has been as an embedded component in areas of"
+          - link "software development":
+            - /url: https://en.wikipedia.org/wiki/Software_development
+          - text: ", which require computational understanding. The starting point in the late 1940s was Alan Turing's question \""
+          - link "Can computers think?":
+            - /url: https://en.wikipedia.org/wiki/Computing_Machinery_and_Intelligence
+          - text: "\", and the question remains effectively unanswered, although the"
+          - link "Turing test":
+            - /url: https://en.wikipedia.org/wiki/Turing_test
+          - text: is still used to assess computer output on the scale of human intelligence. But the automation of evaluative and predictive tasks has been increasingly successful as a substitute for human monitoring and intervention in domains of computer application involving complex real-world data.
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Nicolas_P._Rougier's_rendering_of_the_human_brain.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Human_eye,_rendered_from_Eye.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Colored_neural_network.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Markov_Decision_Process.svg
+                  - img
+            - row "Computational learning theory Computer vision Neural networks Planning and scheduling":
+              - cell "Computational learning theory":
+                - link "Computational learning theory":
+                  - /url: https://en.wikipedia.org/wiki/Computational_learning_theory
+              - cell "Computer vision":
+                - link "Computer vision":
+                  - /url: https://en.wikipedia.org/wiki/Computer_vision
+              - cell "Neural networks":
+                - link "Neural networks":
+                  - /url: https://en.wikipedia.org/wiki/Artificial_neural_network
+              - cell "Planning and scheduling":
+                - link "Planning and scheduling":
+                  - /url: https://en.wikipedia.org/wiki/Planning_and_scheduling
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:English_letters_(alphabet).svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Knight's_tour.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Ackley.gif
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:AutonomicSystemModel.png
+                  - img
+            - row "Natural language processing Computational game theory Evolutionary computation Autonomic computing":
+              - cell "Natural language processing":
+                - link "Natural language processing":
+                  - /url: https://en.wikipedia.org/wiki/Natural_language_processing
+              - cell "Computational game theory":
+                - link "Computational game theory":
+                  - /url: https://en.wikipedia.org/wiki/Algorithmic_game_theory
+              - cell "Evolutionary computation":
+                - link "Evolutionary computation":
+                  - /url: https://en.wikipedia.org/wiki/Evolutionary_computation
+              - cell "Autonomic computing":
+                - link "Autonomic computing":
+                  - /url: https://en.wikipedia.org/wiki/Autonomic_computing
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Neuron.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:KnnClassification.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:ROS_C_logo.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Rule_alignment.gif
+                  - img
+            - row "Representation and reasoning Pattern recognition Robotics Swarm intelligence":
+              - cell "Representation and reasoning":
+                - link "Representation and reasoning":
+                  - /url: https://en.wikipedia.org/wiki/Knowledge_representation_and_reasoning
+              - cell "Pattern recognition":
+                - link "Pattern recognition":
+                  - /url: https://en.wikipedia.org/wiki/Pattern_recognition
+              - cell "Robotics":
+                - link "Robotics":
+                  - /url: https://en.wikipedia.org/wiki/Robotics
+              - cell "Swarm intelligence":
+                - link "Swarm intelligence":
+                  - /url: https://en.wikipedia.org/wiki/Swarm_intelligence
+    - region "Computer systems":
+      - heading "Computer systems" [level=3]
+      - region "Computer architecture and microarchitecture":
+        - heading "Computer architecture and microarchitecture" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Computer architecture":
+            - /url: https://en.wikipedia.org/wiki/Computer_architecture
+          - text: ","
+          - link "Microarchitecture":
+            - /url: https://en.wikipedia.org/wiki/Microarchitecture
+          - text: ", and"
+          - link "Computer engineering":
+            - /url: https://en.wikipedia.org/wiki/Computer_engineering
+        - paragraph:
+          - text: Computer architecture, or digital computer organization, is the conceptual design and fundamental operational structure of a computer system. It focuses largely on the way by which the central processing unit performs internally and accesses addresses in memory.
+          - superscript:
+            - link "[67]":
+              - /url: "#cite_note-70"
+          - text: Computer engineers study
+          - link "computational logic":
+            - /url: https://en.wikipedia.org/wiki/Computational_logic
+          - text: and design of computer hardware, from individual
+          - link "processor":
+            - /url: https://en.wikipedia.org/wiki/Processor_(computing)
+          - text: components,
+          - link "microcontrollers":
+            - /url: https://en.wikipedia.org/wiki/Microcontroller
+          - text: ","
+          - link "personal computers":
+            - /url: https://en.wikipedia.org/wiki/Personal_computer
+          - text: to
+          - link "supercomputers":
+            - /url: https://en.wikipedia.org/wiki/Supercomputer
+          - text: and
+          - link "embedded systems":
+            - /url: https://en.wikipedia.org/wiki/Embedded_system
+          - text: . The term "architecture" in computer literature can be traced to the work of Lyle R. Johnson and
+          - link "Frederick P. Brooks Jr.":
+            - /url: https://en.wikipedia.org/wiki/Frederick_P._Brooks_Jr.
+          - text: ", members of the Machine Organization department in IBM's main research center in 1959."
+        - table:
+          - rowgroup:
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:ABasicComputer.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Intel_Core2_arch.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:SIMD.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Z80_arch.svg
+                  - img
+            - row "Processing unit Microarchitecture Multiprocessing Processor design":
+              - cell "Processing unit":
+                - link "Processing unit":
+                  - /url: https://en.wikipedia.org/wiki/Processing_unit
+              - cell "Microarchitecture":
+                - link "Microarchitecture":
+                  - /url: https://en.wikipedia.org/wiki/Microarchitecture
+              - cell "Multiprocessing":
+                - link "Multiprocessing":
+                  - /url: https://en.wikipedia.org/wiki/Multiprocessing
+              - cell "Processor design":
+                - link "Processor design":
+                  - /url: https://en.wikipedia.org/wiki/Processor_design
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Roomba_original.jpg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Flowchart.png
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Kernel_Layout.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Uarm_metal_wiki2.jpg
+                  - img
+            - row "Ubiquitous computing Systems architecture Operating systems Input/output":
+              - cell "Ubiquitous computing":
+                - link "Ubiquitous computing":
+                  - /url: https://en.wikipedia.org/wiki/Ubiquitous_computing
+              - cell "Systems architecture":
+                - link "Systems architecture":
+                  - /url: https://en.wikipedia.org/wiki/Systems_architecture
+              - cell "Operating systems":
+                - link "Operating systems":
+                  - /url: https://en.wikipedia.org/wiki/Operating_system
+              - cell "Input/output":
+                - link "Input/output":
+                  - /url: https://en.wikipedia.org/wiki/Input/output
+            - row:
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Physical_computing.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:FIR_Filter_General.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Dep-1.svg
+                  - img
+              - cell:
+                - link:
+                  - /url: https://en.wikipedia.org/wiki/File:Linker.svg
+                  - img
+            - row "Embedded system Real-time computing Dependability Interpreter":
+              - cell "Embedded system":
+                - link "Embedded system":
+                  - /url: https://en.wikipedia.org/wiki/Embedded_system
+              - cell "Real-time computing":
+                - link "Real-time computing":
+                  - /url: https://en.wikipedia.org/wiki/Real-time_computing
+              - cell "Dependability":
+                - link "Dependability":
+                  - /url: https://en.wikipedia.org/wiki/Dependability
+              - cell "Interpreter":
+                - link "Interpreter":
+                  - /url: https://en.wikipedia.org/wiki/Interpreter_(computing)
+      - region "Concurrent, parallel and distributed computing":
+        - heading "Concurrent, parallel and distributed computing" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Concurrency (computer science)":
+            - /url: https://en.wikipedia.org/wiki/Concurrency_(computer_science)
+          - text: ","
+          - link "Parallel computing":
+            - /url: https://en.wikipedia.org/wiki/Parallel_computing
+          - text: ", and"
+          - link "Distributed computing":
+            - /url: https://en.wikipedia.org/wiki/Distributed_computing
+        - paragraph:
+          - text: Concurrency is a property of systems in which several computations are executing simultaneously, and potentially interacting with each other.
+          - superscript:
+            - link "[68]":
+              - /url: "#cite_note-71"
+          - text: A number of mathematical models have been developed for general concurrent computation including
+          - link "Petri nets":
+            - /url: https://en.wikipedia.org/wiki/Petri_net
+          - text: ","
+          - link "process calculi":
+            - /url: https://en.wikipedia.org/wiki/Process_calculi
+          - text: and the
+          - link "parallel random access machine":
+            - /url: https://en.wikipedia.org/wiki/Parallel_random_access_machine
+          - text: model.
+          - superscript:
+            - link "[69]":
+              - /url: "#cite_note-72"
+          - text: When multiple computers are connected in a network while using concurrency, this is known as a distributed system. Computers within that distributed system have their own private memory, and information can be exchanged to achieve common goals.
+          - superscript:
+            - link "[70]":
+              - /url: "#cite_note-73"
+      - region "Computer networks":
+        - heading "Computer networks" [level=4]
+        - note:
+          - text: "Main article:"
+          - link "Computer network":
+            - /url: https://en.wikipedia.org/wiki/Computer_network
+        - paragraph:
+          - text: This branch of computer science aims studies the construction and behavior of computer networks. It addresses their performance, resilience, security, scalability, and cost-effectiveness, along with the variety of services they can provide.
+          - superscript:
+            - link "[71]":
+              - /url: "#cite_note-74"
+      - region "Computer security and cryptography":
+        - heading "Computer security and cryptography" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Computer security":
+            - /url: https://en.wikipedia.org/wiki/Computer_security
+          - text: and
+          - link "Cryptography":
+            - /url: https://en.wikipedia.org/wiki/Cryptography
+        - paragraph: Computer security is a branch of computer technology with the objective of protecting information from unauthorized access, disruption, or modification while maintaining the accessibility and usability of the system for its intended users.
+        - paragraph:
+          - text: Historical
+          - link "cryptography":
+            - /url: https://en.wikipedia.org/wiki/Cryptography
+          - text: is the art of writing and deciphering secret messages. Modern cryptography is the scientific study of problems relating to distributed computations that can be attacked.
+          - superscript:
+            - link "[72]":
+              - /url: "#cite_note-75"
+          - text: Technologies studied in modern cryptography include symmetric and asymmetric
+          - link "encryption":
+            - /url: https://en.wikipedia.org/wiki/Encryption
+          - text: ","
+          - link "digital signatures":
+            - /url: https://en.wikipedia.org/wiki/Digital_signature
+          - text: ","
+          - link "cryptographic hash functions":
+            - /url: https://en.wikipedia.org/wiki/Cryptographic_hash_function
+          - text: ","
+          - link "key-agreement protocols":
+            - /url: https://en.wikipedia.org/wiki/Key-agreement_protocol
+          - text: ","
+          - link "blockchain":
+            - /url: https://en.wikipedia.org/wiki/Blockchain
+          - text: ","
+          - link "zero-knowledge proofs":
+            - /url: https://en.wikipedia.org/wiki/Zero-knowledge_proof
+          - text: ", and"
+          - link "garbled circuits":
+            - /url: https://en.wikipedia.org/wiki/Garbled_circuit
+          - text: .
+      - region "Databases and data mining":
+        - heading "Databases and data mining" [level=4]
+        - note:
+          - text: "Main articles:"
+          - link "Database":
+            - /url: https://en.wikipedia.org/wiki/Database
+          - text: and
+          - link "Data mining":
+            - /url: https://en.wikipedia.org/wiki/Data_mining
+        - paragraph:
+          - text: A database is intended to organize, store, and retrieve large amounts of data easily. Digital databases are managed using database management systems to store, create, maintain, and search data, through
+          - link "database models":
+            - /url: https://en.wikipedia.org/wiki/Database_model
+          - text: and
+          - link "query languages":
+            - /url: https://en.wikipedia.org/wiki/Query_language
+          - text: .
+          - link "Data mining":
+            - /url: https://en.wikipedia.org/wiki/Data_mining
+          - text: is a process of discovering patterns in large data sets.
+  - region "Discoveries":
+    - heading "Discoveries" [level=2]
+    - paragraph:
+      - text: The philosopher of computing
+      - link "Bill Rapaport":
+        - /url: https://en.wikipedia.org/wiki/William_J._Rapaport
+      - text: "noted three Great Insights of Computer Science:"
+      - superscript:
+        - link "[73]":
+          - /url: "#cite_note-76"
+    - list:
+      - listitem:
+        - link "Gottfried Wilhelm Leibniz":
+          - /url: https://en.wikipedia.org/wiki/Gottfried_Wilhelm_Leibniz
+        - text: "'s,"
+        - link "George Boole":
+          - /url: https://en.wikipedia.org/wiki/George_Boole
+        - text: "'s,"
+        - link "Alan Turing":
+          - /url: https://en.wikipedia.org/wiki/Alan_Turing
+        - text: "'s,"
+        - link "Claude Shannon":
+          - /url: https://en.wikipedia.org/wiki/Claude_Shannon
+        - text: "'s, and"
+        - link "Samuel Morse":
+          - /url: https://en.wikipedia.org/wiki/Samuel_Morse
+        - text: "'s insight: there are only two objects that a computer has to deal with in order to represent \"anything\"."
+        - superscript:
+          - link "[note 4]":
+            - /url: "#cite_note-77"
+    - definition:
+      - definition: All the information about any computable problem can be represented using only 0 and 1 (or any other bistable pair that can flip-flop between two easily distinguishable states, such as "on/off", "magnetized/de-magnetized", "high-voltage/low-voltage", etc.).
+    - list:
+      - listitem:
+        - link "Alan Turing":
+          - /url: https://en.wikipedia.org/wiki/Alan_Turing
+        - text: "'s insight: there are only five actions that a computer has to perform in order to do \"anything\"."
+    - definition:
+      - definition:
+        - text: "Every algorithm can be expressed in a language for a computer consisting of only five basic instructions:"
+        - superscript:
+          - link "[74]":
+            - /url: "#cite_note-78"
+        - list:
+          - listitem: move left one location;
+          - listitem: move right one location;
+          - listitem: read symbol at current location;
+          - listitem: print 0 at current location;
+          - listitem: print 1 at current location.
+    - note:
+      - text: "See also:"
+      - link "Turing machine":
+        - /url: https://en.wikipedia.org/wiki/Turing_machine
+    - list:
+      - listitem:
+        - link "Corrado Böhm":
+          - /url: https://en.wikipedia.org/wiki/Corrado_Böhm
+        - text: "and Giuseppe Jacopini's insight: there are only three ways of combining these actions (into more complex ones) that are needed in order for a computer to do \"anything\"."
+        - superscript:
+          - link "[75]":
+            - /url: "#cite_note-79"
+    - definition:
+      - definition:
+        - text: "Only three rules are needed to combine any set of basic instructions into more complex ones:"
+        - list:
+          - listitem: "sequence: first do this, then do that;"
+          - listitem: "selection: IF such-and-such is the case, THEN do this, ELSE do that;"
+          - listitem: "repetition: WHILE such-and-such is the case, DO this."
+      - definition:
+        - text: The three rules of Boehm's and Jacopini's insight can be further simplified with the use of
+        - link "goto":
+          - /url: https://en.wikipedia.org/wiki/Goto
+        - text: (which means it is more elementary than
+        - link "structured programming":
+          - /url: https://en.wikipedia.org/wiki/Structured_programming
+        - text: ).
+    - note:
+      - text: "See also:"
+      - link "Structured program theorem":
+        - /url: https://en.wikipedia.org/wiki/Structured_program_theorem
+  - region "Programming paradigms":
+    - heading "Programming paradigms" [level=2]
+    - note:
+      - text: "Main article:"
+      - link "Programming paradigm":
+        - /url: https://en.wikipedia.org/wiki/Programming_paradigm
+    - paragraph: "Programming languages can be used to accomplish different tasks in different ways. Common programming paradigms include:"
+    - list:
+      - listitem:
+        - link "Functional programming":
+          - /url: https://en.wikipedia.org/wiki/Functional_programming
+        - text: ", a style of building the structure and elements of computer programs that treats computation as the evaluation of mathematical functions and avoids state and mutable data. It is a"
+        - link "declarative programming":
+          - /url: https://en.wikipedia.org/wiki/Declarative_programming
+        - text: paradigm, which means programming is done with expressions or declarations instead of statements.
+        - superscript:
+          - link "[76]":
+            - /url: "#cite_note-80"
+      - listitem:
+        - link "Imperative programming":
+          - /url: https://en.wikipedia.org/wiki/Imperative_programming
+        - text: ", a programming paradigm that uses statements that change a program's state."
+        - superscript:
+          - link "[77]":
+            - /url: "#cite_note-81"
+        - text: In much the same way that the imperative mood in natural languages expresses commands, an imperative program consists of commands for the computer to perform. Imperative programming focuses on describing how a program operates.
+      - listitem:
+        - link "Object-oriented programming":
+          - /url: https://en.wikipedia.org/wiki/Object-oriented_programming
+        - text: ", a programming paradigm based on the concept of \"objects\", which may contain data, in the form of fields, often known as attributes; and code, in the form of procedures, often known as methods. A feature of objects is that an object's procedures can access and often modify the data fields of the object with which they are associated. Thus object-oriented computer programs are made out of objects that interact with one another."
+        - superscript:
+          - link "[78]":
+            - /url: "#cite_note-82"
+      - listitem:
+        - link "Service-oriented programming":
+          - /url: https://en.wikipedia.org/wiki/Service-oriented_programming
+        - text: ", a programming paradigm that uses \"services\" as the unit of computer work, to design and implement integrated business applications and"
+        - link "mission critical":
+          - /url: https://en.wikipedia.org/wiki/Mission_critical
+        - text: software programs.
+    - paragraph:
+      - text: Many languages offer support for multiple
+      - link "paradigms":
+        - /url: https://en.wikipedia.org/wiki/Programming_paradigm
+      - text: ", making the distinction more a matter of style than of technical capabilities."
+      - superscript:
+        - link "[79]":
+          - /url: "#cite_note-83"
+  - region "Research":
+    - heading "Research" [level=2]
+    - note:
+      - text: "Further information:"
+      - link "List of computer science conferences":
+        - /url: https://en.wikipedia.org/wiki/List_of_computer_science_conferences
+      - text: ","
+      - link "List of academic computer science departments":
+        - /url: https://en.wikipedia.org/wiki/List_of_academic_computer_science_departments
+      - text: ", and"
+      - link "Category:Computer science journals":
+        - /url: https://en.wikipedia.org/wiki/Category:Computer_science_journals
+    - paragraph:
+      - text: Conferences are important events for computer science research. During these conferences, researchers from the public and private sectors present their recent work and meet. Unlike in most other academic fields, in computer science, the prestige of
+      - link "conference papers":
+        - /url: https://en.wikipedia.org/wiki/Conference_papers
+      - text: is greater than that of journal publications.
+      - superscript:
+        - link "[80]":
+          - /url: "#cite_note-84"
+      - superscript:
+        - link "[81]":
+          - /url: "#cite_note-85"
+      - text: One proposed explanation for this is the quick development of this relatively new field requires rapid review and distribution of results, a task better handled by conferences than by journals.
+      - superscript:
+        - link "[82]":
+          - /url: "#cite_note-86"
+  - region "See also":
+    - heading "See also" [level=2]
+    - list:
+      - listitem:
+        - link "Computer science education":
+          - /url: https://en.wikipedia.org/wiki/Computer_science_education
+      - listitem:
+        - link "Glossary of computer science":
+          - /url: https://en.wikipedia.org/wiki/Glossary_of_computer_science
+      - listitem:
+        - link "List of computer scientists":
+          - /url: https://en.wikipedia.org/wiki/List_of_computer_scientists
+      - listitem:
+        - link "List of computer science awards":
+          - /url: https://en.wikipedia.org/wiki/List_of_computer_science_awards
+      - listitem:
+        - link "List of pioneers in computer science":
+          - /url: https://en.wikipedia.org/wiki/List_of_pioneers_in_computer_science
+      - listitem:
+        - link "Outline of computer science":
+          - /url: https://en.wikipedia.org/wiki/Outline_of_computer_science
+  - region "Notes":
+    - heading "Notes" [level=2]
+    - list:
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-21"
+          - text: ^
+        - text: In 1851
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-24"
+          - text: ^
+        - text: "\"The introduction of punched cards into the new engine was important not only as a more convenient form of control than the drums, or because programs could now be of unlimited extent, and could be stored and repeated without the danger of introducing errors in setting the machine by hand; it was important also because it served to crystallize Babbage's feeling that he had invented something really new, something much more than a sophisticated calculating machine.\""
+        - link "Bruce Collier":
+          - /url: "#COLLIER"
+        - text: ", 1970"
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-51"
+          - text: ^
+        - text: See the entry "
+        - link "Computer science":
+          - /url: https://en.wikiquote.org/wiki/Computer%20science
+        - text: "\" on Wikiquote for the history of this quotation."
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-77"
+          - text: ^
+        - text: "The word \"anything\" is written in quotation marks because there are things that computers cannot do. One example is: to answer the question if an arbitrary given computer program will eventually finish or run forever (the"
+        - link "Halting problem":
+          - /url: https://en.wikipedia.org/wiki/Halting_problem
+        - text: ).
+  - region "References":
+    - heading "References" [level=2]
+    - list:
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-YorkDefinition_1-0"
+          - text: ^
+        - link "\"What is Computer Science?\"":
+          - /url: https://www.cs.york.ac.uk/undergraduate/what-is-cs/
+        - text: . Department of Computer Science, University of York.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20200611230638/https://www.cs.york.ac.uk/undergraduate/what-is-cs/
+        - text: from the original on June 11, 2020. Retrieved June 11, 2020.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-MITAutomated_2-0"
+        - link:
+          - /url: "#cite_ref-MITAutomated_2-1"
+        - link "What Can Be Automated? Computer Science and Engineering Research Study":
+          - /url: https://mitpress.mit.edu/books/what-can-be-automated
+        - text: . Computer Science Series. MIT Press. 1980.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0262010603":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0262010603
+        - text: .
+        - link "Archived":
+          - /url: https://web.archive.org/web/20210109021022/https://mitpress.mit.edu/books/what-can-be-automated
+        - text: from the original on January 9, 2021.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-DenningAutomated_3-0"
+        - link:
+          - /url: "#cite_ref-DenningAutomated_3-1"
+        - link:
+          - /url: "#cite_ref-DenningAutomated_3-2"
+        - text: "Denning, P.J.; Comer, D.E.; Gries, D.; Mulder, M.C.; Tucker, A.; Turner, A.J.; Young, P.R. (February 1989). \"Computing as a discipline\". Computer. 22 (2): 63–70."
+        - link "Bibcode":
+          - /url: https://en.wikipedia.org/wiki/Bibcode_(identifier)
+        - text: ":"
+        - link "1989Compr..22b..63D":
+          - /url: https://ui.adsabs.harvard.edu/abs/1989Compr..22b..63D
+        - text: .
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1109/2.19833":
+          - /url: https://doi.org/10.1109%2F2.19833
+        - text: .
+        - link "ISSN":
+          - /url: https://en.wikipedia.org/wiki/ISSN_(identifier)
+        - link "1558-0814":
+          - /url: https://search.worldcat.org/issn/1558-0814
+        - text: . The discipline of computing is the systematic study of algorithmic processes that describe and transform information, their theory, analysis, design, efficiency, implementation, and application. The fundamental question underlying all of computing is, 'What can be (efficiently) automated?'
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-4"
+          - text: ^
+        - text: "Dasgupta, Subrata (2016). Computer Science: A Very Short Introduction. Oxford University Press. p. 1."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0-19-873346-1":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0-19-873346-1
+        - text: . What is computer science?A, now classic, answer was offered in 1967 by three eminent early contributors to the discipline, Alan Perils, Allen Newel, and Herbert Simon, who stated, quite simply, that computer science is the study of computers and their associated phenomena.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-5"
+          - text: ^
+        - link "\"WordNet Search—3.1\"":
+          - /url: http://wordnetweb.princeton.edu/perl/webwn?s=computer%20scientist
+        - text: . WordNet Search. Wordnetweb.princeton.edu.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20171018181122/http://wordnetweb.princeton.edu/perl/webwn?s=computer%20scientist
+        - text: from the original on October 18, 2017. Retrieved May 14, 2012.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-6"
+          - text: ^
+        - link "\"Definition of computer science | Dictionary.com\"":
+          - /url: https://www.dictionary.com/browse/computer-science
+        - text: . www.dictionary.com.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20200611224238/https://www.dictionary.com/browse/computer-science
+        - text: from the original on June 11, 2020. Retrieved June 11, 2020.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-7"
+          - text: ^
+        - link "\"What is Computer Science? | Undergraduate Computer Science at UMD\"":
+          - /url: https://undergrad.cs.umd.edu/what-computer-science
+        - text: . undergrad.cs.umd.edu.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20201127013803/https://undergrad.cs.umd.edu/what-computer-science
+        - text: from the original on November 27, 2020. Retrieved July 15, 2022.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-8"
+          - text: ^
+        - text: Harel, David (2014). Algorithmics The Spirit of Computing. Springer Berlin.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-642-44135-6":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-642-44135-6
+        - text: .
+        - link "OCLC":
+          - /url: https://en.wikipedia.org/wiki/OCLC_(identifier)
+        - link "876384882":
+          - /url: https://search.worldcat.org/oclc/876384882
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-9"
+          - text: ^
+        - text: Patton, Richard D.; Patton, Peter C. (2009),
+        - link "\"What Can be Automated? What Cannot be Automated?\"":
+          - /url: https://doi.org/10.1007/978-3-540-78831-7_18
+        - text: ", in Nof, Shimon Y. (ed.), Springer Handbook of Automation, Springer Handbooks, Berlin, Heidelberg: Springer, pp. 305–313,"
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1007/978-3-540-78831-7_18":
+          - /url: https://doi.org/10.1007%2F978-3-540-78831-7_18
+        - text: ","
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-540-78831-7":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-78831-7
+        - text: ","
+        - link "archived":
+          - /url: https://web.archive.org/web/20230111224039/https://link.springer.com/chapter/10.1007/978-3-540-78831-7_18
+        - text: from the original on January 11, 2023, retrieved March 3, 2022
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-10"
+          - text: ^
+        - text: Forsythe, George (August 5–10, 1969). "Computer Science and Education". Proceedings of IFIP Congress 1968. The question 'What can be automated?' is one of the most inspiring philosophical and practical questions of contemporary civilization.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-11"
+          - text: ^
+        - text: Knuth, Donald E. (August 1, 1972).
+        - link "\"George Forsythe and the development of computer science\"":
+          - /url: https://doi.org/10.1145%2F361532.361538
+        - text: ". Communications of the ACM. 15 (8): 721–726."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/361532.361538":
+          - /url: https://doi.org/10.1145%2F361532.361538
+        - text: .
+        - link "ISSN":
+          - /url: https://en.wikipedia.org/wiki/ISSN_(identifier)
+        - link "0001-0782":
+          - /url: https://search.worldcat.org/issn/0001-0782
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "12512057":
+          - /url: https://api.semanticscholar.org/CorpusID:12512057
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-12"
+          - text: ^
+        - text: Hanson, Vicki L. (January 23, 2017).
+        - link "\"Celebrating 50 years of the Turing award\"":
+          - /url: https://doi.org/10.1145%2F3033604
+        - text: ". Communications of the ACM. 60 (2): 5."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/3033604":
+          - /url: https://doi.org/10.1145%2F3033604
+        - text: .
+        - link "ISSN":
+          - /url: https://en.wikipedia.org/wiki/ISSN_(identifier)
+        - link "0001-0782":
+          - /url: https://search.worldcat.org/issn/0001-0782
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "29984960":
+          - /url: https://api.semanticscholar.org/CorpusID:29984960
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-13"
+          - text: ^
+        - text: Scott, Eric; Martins, Marcella Scoczynski Ribeiro; Yafrani, Mohamed El; Volz, Vanessa; Wilson, Dennis G (June 5, 2018).
+        - link "\"ACM marks 50 years of the ACM A.M. turing award and computing's greatest achievements\"":
+          - /url: https://doi.org/10.1145/3231560.3231563
+        - text: ". ACM SIGEVOlution. 10 (3): 9–11."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/3231560.3231563":
+          - /url: https://doi.org/10.1145%2F3231560.3231563
+        - text: .
+        - link "ISSN":
+          - /url: https://en.wikipedia.org/wiki/ISSN_(identifier)
+        - link "1931-8499":
+          - /url: https://search.worldcat.org/issn/1931-8499
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "47021559":
+          - /url: https://api.semanticscholar.org/CorpusID:47021559
+        - text: .
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-Why_Did_Thomas_Harriot_Invent_Binar_14-0"
+        - link:
+          - /url: "#cite_ref-Why_Did_Thomas_Harriot_Invent_Binar_14-1"
+        - link "Strickland, Lloyd":
+          - /url: https://en.wikipedia.org/wiki/Lloyd_Strickland
+        - text: (2023).
+        - link "\"Why Did Thomas Harriot Invent Binary?\"":
+          - /url: https://doi.org/10.1007%2Fs00283-023-10271-9
+        - text: ". The Mathematical Intelligencer. 46: 57–62."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1007/s00283-023-10271-9":
+          - /url: https://doi.org/10.1007%2Fs00283-023-10271-9
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-15"
+          - text: ^
+        - 'link "\"Charles Babbage Institute: Who Was Charles Babbage?\""':
+          - /url: http://www.cbi.umn.edu/about/babbage.html
+        - text: . cbi.umn.edu.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20070109093346/http://www.cbi.umn.edu/about/babbage.html
+        - text: from the original on January 9, 2007. Retrieved December 28, 2016.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-16"
+          - text: ^
+        - link "\"Ada Lovelace | Babbage Engine | Computer History Museum\"":
+          - /url: http://www.computerhistory.org/babbage/adalovelace/
+        - text: . www.computerhistory.org.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20181225024329/http://www.computerhistory.org/babbage/adalovelace/%20
+        - text: from the original on December 25, 2018. Retrieved December 28, 2016.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-17"
+          - text: ^
+        - link "\"History of Computer Science\"":
+          - /url: https://cs.uwaterloo.ca/~shallit/Courses/134/history.html#:~:text=In%20the%201960%27s,%20computer%20science,person%20to%20receive%20a%20Ph.
+        - text: . cs.uwaterloo.ca.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20170729210116/https://cs.uwaterloo.ca/~shallit/Courses/134/history.html#:~:text=In%20the%201960%27s,%20computer%20science,person%20to%20receive%20a%20Ph.
+        - text: from the original on July 29, 2017. Retrieved July 15, 2022.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-18"
+          - text: ^
+        - link "\"Wilhelm Schickard – Ein Computerpionier\"":
+          - /url: https://web.archive.org/web/20200919014352/https://www.fmi.uni-jena.de/fmimedia/Fakultaet/Institute+und+Abteilungen/Abteilung+f%C3%BCr+Didaktik/GDI/Wilhelm+Schickard.pdf
+        - text: (PDF) (in German). Archived from
+        - link "the original":
+          - /url: http://www.fmi.uni-jena.de/fmimedia/Fakultaet/Institute+und+Abteilungen/Abteilung+f%C3%BCr+Didaktik/GDI/Wilhelm+Schickard.pdf
+        - text: (PDF) on September 19, 2020. Retrieved December 4, 2016.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-19"
+          - text: ^
+        - link "\"Pre-History of Computing\"":
+          - /url: https://www.i-programmer.info/history/machines/517-the-prehistory-of-computers.html?start=1
+        - text: . www.i-programmer.info. Retrieved March 16, 2026.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-20"
+          - text: ^
+        - link "\"The Leibniz Step Reckoner and Curta Calculators\"":
+          - /url: https://www.computerhistory.org/revolution/story/49
+        - text: . Computer History Museum. Retrieved March 16, 2026.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-22"
+          - text: ^
+        - link "\"Science Museum, Babbage's Analytical Engine, 1834–1871 (Trial model)\"":
+          - /url: https://collection.sciencemuseumgroup.org.uk/objects/co62245/babbages-analytical-engine-1834-1871-trial-model-analytical-engines
+        - text: .
+        - link "Archived":
+          - /url: https://web.archive.org/web/20190830123359/https://collection.sciencemuseumgroup.org.uk/objects/co62245/babbages-analytical-engine-1834-1871-trial-model-analytical-engines
+        - text: from the original on August 30, 2019. Retrieved May 11, 2020.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-Hyman1982_23-0"
+        - link:
+          - /url: "#cite_ref-Hyman1982_23-1"
+        - link "Hyman, Anthony":
+          - /url: https://en.wikipedia.org/wiki/R._Anthony_Hyman
+        - text: (1982).
+        - 'link "Charles Babbage: Pioneer of the Computer"':
+          - /url: https://en.wikipedia.org/wiki/Charles_Babbage:_Pioneer_of_the_Computer
+        - text: .
+        - link "Oxford University Press":
+          - /url: https://en.wikipedia.org/wiki/Oxford_University_Press
+        - text: .
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0691083032":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0691083032
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-25"
+          - text: ^
+        - link "\"A Selection and Adaptation From Ada's Notes found in Ada, The Enchantress of Numbers,\" by Betty Alexandra Toole Ed.D. Strawberry Press, Mill Valley, CA\"":
+          - /url: https://web.archive.org/web/20060210172109/http://www.scottlan.edu/lriddle/women/ada-love.htm
+        - text: . Archived from
+        - link "the original":
+          - /url: http://www.scottlan.edu/Lriddle/women/ada-love.htm
+        - text: on February 10, 2006. Retrieved May 4, 2006.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-26"
+          - text: ^
+        - link "\"The John Gabriel Byrne Computer Science Collection\"":
+          - /url: https://web.archive.org/web/20190416071721/https://www.scss.tcd.ie/SCSSTreasuresCatalog/miscellany/TCD-SCSS-X.20121208.002/TCD-SCSS-X.20121208.002.pdf
+        - text: (PDF). Archived from
+        - link "the original":
+          - /url: https://scss.tcd.ie/SCSSTreasuresCatalog/miscellany/TCD-SCSS-X.20121208.002/TCD-SCSS-X.20121208.002.pdf/
+        - text: on April 16, 2019. Retrieved August 8, 2019.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-LTQ1914es_27-0"
+          - text: ^
+        - text: Torres Quevedo, L. (1914). "Ensayos sobre Automática – Su definicion. Extension teórica de sus aplicaciones". Revista de la Academia de Ciencias Exacta, 12, pp. 391–418.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-28"
+          - text: ^
+        - text: Torres Quevedo, Leonardo.
+        - 'link "Automática: Complemento de la Teoría de las Máquinas, (pdf)"':
+          - /url: https://quickclick.es/rop/pdf/publico/1914/1914_tomoI_2043_01.pdf
+        - text: ", pp. 575–583, Revista de Obras Públicas, November 19, 1914."
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-29"
+          - text: ^
+        - text: Ronald T. Kneusel.
+        - link "Numbers and Computers":
+          - /url: https://books.google.com/books?id=eq4ZDgAAQBAJ&dq=leonardo+torres+quevedo++electromechanical+machine+essays&pg=PA84
+        - text: ", Springer, pp. 84–85, 2017."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3319505084":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3319505084
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-30"
+          - text: ^
+        - text: Randell, Brian.
+        - link "Digital Computers, History of Origins, (pdf)":
+          - /url: https://dl.acm.org/doi/pdf/10.5555/1074100.1074334
+        - text: ", p. 545, Digital Computers: Origins, Encyclopedia of Computer Science, January 2003."
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-FOOTNOTERandell19826,_11–13_31-0"
+          - text: ^
+        - link "Randell 1982":
+          - /url: "#CITEREFRandell1982"
+        - text: ", pp. 6, 11–13."
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-32"
+          - text: ^
+        - text: "\"In this sense Aiken needed IBM, whose technology included the use of punched cards, the accumulation of numerical data, and the transfer of numerical data from one register to another\","
+        - link "Bernard Cohen":
+          - /url: "#HAIKEN"
+        - text: ", p.44 (2000)"
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-33"
+          - text: ^
+        - link "Brian Randell":
+          - /url: "#CITEREFRandell1973"
+        - text: ", p. 187, 1975"
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-34"
+          - text: ^
+        - text: The
+        - link "Association for Computing Machinery":
+          - /url: https://en.wikipedia.org/wiki/Association_for_Computing_Machinery
+        - text: (ACM) was founded in 1947.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-35"
+          - text: ^
+        - 'link "\"IBM Archives: 1945\""':
+          - /url: https://www.ibm.com/ibm/history/history/year_1945.html
+        - text: . Ibm.com. January 23, 2003.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20190105013948/https://www.ibm.com/ibm/history/history/year_1945.html
+        - text: from the original on January 5, 2019. Retrieved March 19, 2019.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-36"
+          - text: ^
+        - link "\"IBM100 – The Origins of Computer Science\"":
+          - /url: https://www.ibm.com/ibm/history/ibm100/us/en/icons/compsci/
+        - text: . Ibm.com. September 15, 1995.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20190105051800/https://www.ibm.com/ibm/history/ibm100/us/en/icons/compsci/
+        - text: from the original on January 5, 2019. Retrieved March 19, 2019.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-Denning_37-0"
+        - link:
+          - /url: "#cite_ref-Denning_37-1"
+        - link:
+          - /url: "#cite_ref-Denning_37-2"
+        - text: "Denning, P.J.; Comer, D.E.; Gries, D.; Mulder, M.C.; Tucker, A.; Turner, A.J.; Young, P.R. (February 1989). \"Computing as a discipline\". Computer. 22 (2): 63–70."
+        - link "Bibcode":
+          - /url: https://en.wikipedia.org/wiki/Bibcode_(identifier)
+        - text: ":"
+        - link "1989Compr..22b..63D":
+          - /url: https://ui.adsabs.harvard.edu/abs/1989Compr..22b..63D
+        - text: .
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1109/2.19833":
+          - /url: https://doi.org/10.1109%2F2.19833
+        - text: .
+        - link "ISSN":
+          - /url: https://en.wikipedia.org/wiki/ISSN_(identifier)
+        - link "1558-0814":
+          - /url: https://search.worldcat.org/issn/1558-0814
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-38"
+          - text: ^
+        - link "\"Some EDSAC statistics\"":
+          - /url: http://www.cl.cam.ac.uk/conference/EDSAC99/statistics.html
+        - text: . University of Cambridge.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20070903055322/http://www.cl.cam.ac.uk/conference/EDSAC99/statistics.html
+        - text: from the original on September 3, 2007. Retrieved November 19, 2011.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-39"
+          - text: ^
+        - link "\"Computer science pioneer Samuel D. Conte dies at 85\"":
+          - /url: http://www.cs.purdue.edu/about/conte.html
+        - text: . Purdue Computer Science. July 1, 2002.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20141006142241/http://www.cs.purdue.edu/about/conte.html
+        - text: from the original on October 6, 2014. Retrieved December 12, 2014.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-Tedre2014_40-0"
+        - link:
+          - /url: "#cite_ref-Tedre2014_40-1"
+        - text: "Tedre, Matti (2014). The Science of Computing: Shaping a Discipline. Taylor and Francis / CRC Press."
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-Fine_1959_41-0"
+        - link:
+          - /url: "#cite_ref-Fine_1959_41-1"
+        - text: Louis Fine (1960).
+        - link "\"The Role of the University in Computers, Data Processing, and Related Fields\"":
+          - /url: https://doi.org/10.1145%2F368424.368427
+        - text: ". Communications of the ACM. 2 (9): 7–14."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/368424.368427":
+          - /url: https://doi.org/10.1145%2F368424.368427
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "6740821":
+          - /url: https://api.semanticscholar.org/CorpusID:6740821
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-42"
+          - text: ^
+        - link "\"Stanford University Oral History\"":
+          - /url: http://library.stanford.edu/guides/stanford-university-oral-history
+        - text: . Stanford Libraries. Stanford University.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20170404070555/http://library.stanford.edu/guides/stanford-university-oral-history
+        - text: from the original on April 4, 2017. Retrieved May 30, 2013.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-43"
+          - text: ^
+        - link "Donald Knuth":
+          - /url: https://en.wikipedia.org/wiki/Donald_Knuth
+        - text: (1972).
+        - link "\"George Forsythe and the Development of Computer Science\"":
+          - /url: http://www.stanford.edu/dept/ICME/docs/history/forsythe_knuth.pdf
+        - text: . Comms. ACM.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20131020200802/http://www.stanford.edu/dept/ICME/docs/history/forsythe_knuth.pdf
+        - text: October 20, 2013, at the
+        - link "Wayback Machine":
+          - /url: https://en.wikipedia.org/wiki/Wayback_Machine
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-44"
+          - text: ^
+        - text: Matti Tedre (2006).
+        - 'link "\"The Development of Computer Science: A Sociocultural Perspective\""':
+          - /url: http://epublications.uef.fi/pub/urn_isbn_952-458-867-6/urn_isbn_952-458-867-6.pdf
+        - text: (PDF). p. 260.
+        - link "Archived":
+          - /url: https://ghostarchive.org/archive/20221009/http://epublications.uef.fi/pub/urn_isbn_952-458-867-6/urn_isbn_952-458-867-6.pdf
+        - text: (PDF) from the original on October 9, 2022. Retrieved December 12, 2014.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-45"
+          - text: ^
+        - text: Peter Naur (1966).
+        - link "\"The science of datalogy\"":
+          - /url: https://doi.org/10.1145%2F365719.366510
+        - text: ". Communications of the ACM. 9 (7): 485."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/365719.366510":
+          - /url: https://doi.org/10.1145%2F365719.366510
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "47558402":
+          - /url: https://api.semanticscholar.org/CorpusID:47558402
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-46"
+          - text: ^
+        - text: Weiss, E.A.; Corley, Henry P.T.
+        - link "\"Letters to the editor\"":
+          - /url: https://doi.org/10.1145%2F368796.368802
+        - text: ". Communications of the ACM. 1 (4): 6."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/368796.368802":
+          - /url: https://doi.org/10.1145%2F368796.368802
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "5379449":
+          - /url: https://api.semanticscholar.org/CorpusID:5379449
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-47"
+          - text: ^
+        - text: Communications of the ACM 2(1):p.4
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-48"
+          - text: ^
+        - text: "IEEE Computer 28(12): p.136"
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-49"
+          - text: ^
+        - text: P. Mounier-Kuhn, L'Informatique en France, de la seconde guerre mondiale au Plan Calcul. L'émergence d'une science, Paris, PUPS, 2010, ch. 3 & 4.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-50"
+          - text: ^
+        - text: Groth, Dennis P. (February 2010).
+        - link "\"Why an Informatics Degree?\"":
+          - /url: http://cacm.acm.org/magazines/2010/2/69363-why-an-informatics-degree
+        - text: . Communications of the ACM. Cacm.acm.org.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20230111224014/https://cacm.acm.org/magazines/2010/2/69363-why-an-informatics-degree/abstract
+        - text: from the original on January 11, 2023. Retrieved June 14, 2016.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-52"
+          - text: ^
+        - text: "Tedre, M. (2011). \"Computing as a Science: A Survey of Competing Viewpoints\". Minds and Machines. 21 (3): 361–387."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1007/s11023-011-9240-4":
+          - /url: https://doi.org/10.1007%2Fs11023-011-9240-4
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "14263916":
+          - /url: https://api.semanticscholar.org/CorpusID:14263916
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-53"
+          - text: ^
+        - text: "Parnas, D.L. (1998). \"Software engineering programmes are not computer science programmes\". Annals of Software Engineering. 6 (1–4): 19–37."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1023/A:1018949113292":
+          - /url: https://doi.org/10.1023%2FA%3A1018949113292
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "35786237":
+          - /url: https://api.semanticscholar.org/CorpusID:35786237
+        - text: "., p. 19: \"Rather than treat software engineering as a subfield of computer science, I treat it as an element of the set, Civil Engineering, Mechanical Engineering, Chemical Engineering, Electrical Engineering, [...]\""
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-Luk20_54-0"
+          - text: ^
+        - text: "Luk, R.W.P. (2020). \"Insight in how computer science can be a science\". Science & Philosophy. 8 (2): 17–47."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.23756/sp.v8i2.531":
+          - /url: https://doi.org/10.23756%2Fsp.v8i2.531
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-Knuth74_55-0"
+          - text: ^
+        - text: "Knuth, D.E. (1974). \"Computer science and its relation to mathematics\". The American Mathematical Monthly. 81 (4): 323–343."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.2307/2318994":
+          - /url: https://doi.org/10.2307%2F2318994
+        - text: .
+        - link "JSTOR":
+          - /url: https://en.wikipedia.org/wiki/JSTOR_(identifier)
+        - link "2318994":
+          - /url: https://www.jstor.org/stable/2318994
+        - text: .
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-plato_56-0"
+        - link:
+          - /url: "#cite_ref-plato_56-1"
+        - link:
+          - /url: "#cite_ref-plato_56-2"
+        - link:
+          - /url: "#cite_ref-plato_56-3"
+        - link:
+          - /url: "#cite_ref-plato_56-4"
+        - link:
+          - /url: "#cite_ref-plato_56-5"
+        - link:
+          - /url: "#cite_ref-plato_56-6"
+        - link "\"The Philosophy of Computer Science\"":
+          - /url: https://plato.stanford.edu/entries/computer-science/#EpisStatCompScie
+        - text: . The Philosophy of Computer Science (Stanford Encyclopedia of Philosophy). Metaphysics Research Lab, Stanford University. 2021.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20210916211931/https://plato.stanford.edu/entries/computer-science/#EpisStatCompScie
+        - text: from the original on September 16, 2021. Retrieved September 16, 2021.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-57"
+          - text: ^
+        - text: "Wegner, P. (October 13–15, 1976). Research paradigms in computer science—Proceedings of the 2nd international Conference on Software Engineering. San Francisco, California, United States: IEEE Computer Society Press, Los Alamitos, CA."
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-denning07_58-0"
+          - text: ^
+        - text: "Denning, Peter J. (2007). \"Computing is a natural science\". Communications of the ACM. 50 (7): 13–18."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/1272516.1272529":
+          - /url: https://doi.org/10.1145%2F1272516.1272529
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "20045303":
+          - /url: https://api.semanticscholar.org/CorpusID:20045303
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-59"
+          - text: ^
+        - text: Eden, A.H. (2007).
+        - link "\"Three Paradigms of Computer Science\"":
+          - /url: https://web.archive.org/web/20160215100211/http://www.eden-study.org/articles/2007/three_paradigms_of_computer_science.pdf
+        - text: (PDF).
+        - link "Minds and Machines":
+          - /url: https://en.wikipedia.org/wiki/Minds_and_Machines
+        - text: ". 17 (2): 135–167."
+        - link "CiteSeerX":
+          - /url: https://en.wikipedia.org/wiki/CiteSeerX_(identifier)
+        - link "10.1.1.304.7763":
+          - /url: https://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.304.7763
+        - text: .
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1007/s11023-007-9060-8":
+          - /url: https://doi.org/10.1007%2Fs11023-007-9060-8
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "3023076":
+          - /url: https://api.semanticscholar.org/CorpusID:3023076
+        - text: . Archived from
+        - link "the original":
+          - /url: http://www.eden-study.org/articles/2007/three_paradigms_of_computer_science.pdf
+        - text: (PDF) on February 15, 2016.
+        - code:
+          - text: "{{"
+          - link "cite journal":
+            - /url: https://en.wikipedia.org/wiki/Template:Cite_journal
+          - text: "}}"
+        - text: ": Cite uses deprecated parameter"
+        - code: "|citeseerx="
+        - text: (
+        - link "help":
+          - /url: https://en.wikipedia.org/wiki/Help:CS1_errors#deprecated_params
+        - text: )
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-60"
+          - text: ^
+        - text: Turner, Raymond; Angius, Nicola (2019).
+        - link "\"The Philosophy of Computer Science\"":
+          - /url: https://plato.stanford.edu/archives/spr2019/entries/computer-science/
+        - text: . In Zalta, Edward N. (ed.). The Stanford Encyclopedia of Philosophy.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20191014101624/https://plato.stanford.edu/archives/spr2019/entries/computer-science/
+        - text: from the original on October 14, 2019. Retrieved October 14, 2019.
+      - listitem:
+        - text: ^
+        - link "Jump up to:":
+          - /url: "#cite_ref-CSAB1997_61-0"
+        - link:
+          - /url: "#cite_ref-CSAB1997_61-1"
+        - link "\"Computer Science as a Profession\"":
+          - /url: https://web.archive.org/web/20080617030847/http://www.csab.org/comp_sci_profession.html
+        - text: . Computing Sciences Accreditation Board. May 28, 1997. Archived from
+        - link "the original":
+          - /url: http://www.csab.org/comp_sci_profession.html
+        - text: on June 17, 2008. Retrieved May 23, 2010.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-62"
+          - text: ^
+        - text: "Committee on the Fundamentals of Computer Science: Challenges and Opportunities, National Research Council (2004)."
+        - 'link "Computer Science: Reflections on the Field, Reflections from the Field"':
+          - /url: http://www.nap.edu/catalog.php?record_id=11106#toc
+        - text: . National Academies Press.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0-309-09301-9":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0-309-09301-9
+        - text: .
+        - link "Archived":
+          - /url: https://web.archive.org/web/20110218122042/http://www.nap.edu/catalog.php?record_id=11106#toc
+        - text: from the original on February 18, 2011. Retrieved August 31, 2008.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-63"
+          - text: ^
+        - link "\"CSAB Leading Computer Education\"":
+          - /url: http://www.csab.org/
+        - text: . CSAB. August 3, 2011.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20190120190336/http://www.csab.org/
+        - text: from the original on January 20, 2019. Retrieved November 19, 2011.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-64"
+          - text: ^
+        - link "Clay Mathematics Institute":
+          - /url: http://www.claymath.org/millennium/P_vs_NP/
+        - text: P = NP
+        - link "Archived":
+          - /url: https://web.archive.org/web/20131014194456/http://www.claymath.org/millennium/P_vs_NP/
+        - text: October 14, 2013, at the
+        - link "Wayback Machine":
+          - /url: https://en.wikipedia.org/wiki/Wayback_Machine
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-65"
+          - text: ^
+        - text: P. Collins, Graham (October 14, 2002).
+        - 'link "\"Claude E. Shannon: Founder of Information Theory\""':
+          - /url: http://www.scientificamerican.com/article.cfm?id=claude-e-shannon-founder
+        - text: . Scientific American.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20140116183558/http://www.scientificamerican.com/article.cfm?id=claude-e-shannon-founder
+        - text: from the original on January 16, 2014. Retrieved December 12, 2014.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-66"
+          - text: ^
+        - text: Van-Nam Huynh; Vladik Kreinovich; Songsak Sriboonchitta; 2012. Uncertainty Analysis in Econometrics with Applications. Springer Science & Business Media. p. 63.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-642-35443-4":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-642-35443-4
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-67"
+          - text: ^
+        - text: Phillip A. Laplante, (2010). Encyclopedia of Software Engineering Three-Volume Set (Print). CRC Press. p. 309.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-351-24926-3":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-351-24926-3
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-68"
+          - text: ^
+        - text: Muhammad H. Rashid, (2016). SPICE for Power Electronics and Electric Power. CRC Press. p. 6.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-4398-6047-2":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-4398-6047-2
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-69"
+          - text: ^
+        - link "\"What is an integrated circuit (IC)? A vital component of modern electronics\"":
+          - /url: https://whatis.techtarget.com/definition/integrated-circuit-IC
+        - text: . WhatIs.com.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20211115153823/https://whatis.techtarget.com/definition/integrated-circuit-IC
+        - text: from the original on November 15, 2021. Retrieved November 15, 2021.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-70"
+          - text: ^
+        - text: A. Thisted, Ronald (April 7, 1997).
+        - link "\"Computer Architecture\"":
+          - /url: http://galton.uchicago.edu/~thisted/Distribute/comparch.pdf
+        - text: (PDF). The University of Chicago.
+        - link "Archived":
+          - /url: https://ghostarchive.org/archive/20221009/http://galton.uchicago.edu/~thisted/Distribute/comparch.pdf
+        - text: (PDF) from the original on October 9, 2022.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-71"
+          - text: ^
+        - text: Jiacun Wang, (2017). Real-Time Embedded Systems. Wiley. p. 12.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-119-42070-5":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-119-42070-5
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-72"
+          - text: ^
+        - text: "Gordana Dodig-Crnkovic; Raffaela Giovagnoli, (2013). Computing Nature: Turing Centenary Perspective. Springer Science & Business Media. p. 247."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-642-37225-4":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-642-37225-4
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-73"
+          - text: ^
+        - text: "Simon Elias Bibri (2018). Smart Sustainable Cities of the Future: The Untapped Potential of Big Data Analytics and Context-Aware Computing for Advancing Sustainability. Springer. p. 74."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-319-73981-6":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-319-73981-6
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-74"
+          - text: ^
+        - text: Peterson, Larry; Davie, Bruce (2000).
+        - 'link "Computer Networks: A Systems Approach"':
+          - /url: https://book.systemsapproach.org/index.html
+        - text: ". Singapore: Harcourt Asia."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "9789814066433":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/9789814066433
+        - text: . Retrieved May 24, 2025.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-75"
+          - text: ^
+        - text: "Katz, Jonathan (2008). Introduction to modern cryptography. Yehuda Lindell. Boca Raton: Chapman & Hall/CRC."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-58488-551-1":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-58488-551-1
+        - text: .
+        - link "OCLC":
+          - /url: https://en.wikipedia.org/wiki/OCLC_(identifier)
+        - link "137325053":
+          - /url: https://search.worldcat.org/oclc/137325053
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-76"
+          - text: ^
+        - text: Rapaport, William J. (September 20, 2013).
+        - link "\"What Is Computation?\"":
+          - /url: http://www.cse.buffalo.edu/~rapaport/computation.html
+        - text: . State University of New York at Buffalo.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20010214002845/http://www.cse.buffalo.edu/~rapaport/computation.html
+        - text: from the original on February 14, 2001. Retrieved August 31, 2013.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-78"
+          - text: ^
+        - text: "B. Jack Copeland, (2012). Alan Turing's Electronic Brain: The Struggle to Build the ACE, the World's Fastest Computer. OUP Oxford. p. 107."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0-19-960915-4":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0-19-960915-4
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-79"
+          - text: ^
+        - text: Charles W. Herbert, (2010). An Introduction to Programming Using Alice 2.2. Cengage Learning. p. 122.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "0-538-47866-7":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/0-538-47866-7
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-80"
+          - text: ^
+        - text: "Md. Rezaul Karim; Sridhar Alla, (2017). Scala and Spark for Big Data Analytics: Explore the concepts of functional programming, data streaming, and machine learning. Packt Publishing Ltd. p. 87."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-78355-050-0":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-78355-050-0
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-81"
+          - text: ^
+        - text: "Lex Sheehan, (2017). Learning Functional Programming in Go: Change the way you approach your applications using functional programming in Go. Packt Publishing Ltd. p. 16."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-78728-604-7":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-78728-604-7
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-82"
+          - text: ^
+        - text: "Evelio Padilla, (2015). Substation Automation Systems: Design and Implementation. Wiley. p. 245."
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-118-98730-8":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-118-98730-8
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-83"
+          - text: ^
+        - link "\"Multi-Paradigm Programming Language\"":
+          - /url: https://web.archive.org/web/20130821052407/https://developer.mozilla.org/en-US/docs/multiparadigmlanguage.html
+        - text: . MDN Web Docs.
+        - link "Mozilla Foundation":
+          - /url: https://en.wikipedia.org/wiki/Mozilla_Foundation
+        - text: . Archived from
+        - link "the original":
+          - /url: https://developer.mozilla.org/en-US/docs/multiparadigmlanguage.html
+        - text: on August 21, 2013.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-84"
+          - text: ^
+        - text: Meyer, Bertrand (April 2009).
+        - 'link "\"Viewpoint: Research evaluation for computer science\""':
+          - /url: https://pure.itu.dk/portal/da/publications/b474cea0-8288-11dd-b116-000ea68e967b
+        - text: ". Communications of the ACM. 25 (4): 31–34."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/1498765.1498780":
+          - /url: https://doi.org/10.1145%2F1498765.1498780
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "8625066":
+          - /url: https://api.semanticscholar.org/CorpusID:8625066
+        - text: .
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-85"
+          - text: ^
+        - text: Patterson, David (August 1999).
+        - link "\"Evaluating Computer Scientists and Engineers For Promotion and Tenure\"":
+          - /url: http://cra.org/resources/bp-view/evaluating_computer_scientists_and_engineers_for_promotion_and_tenure/
+        - text: . Computing Research Association.
+        - link "Archived":
+          - /url: https://web.archive.org/web/20150722020941/http://cra.org/resources/bp-view/evaluating_computer_scientists_and_engineers_for_promotion_and_tenure/
+        - text: from the original on July 22, 2015. Retrieved July 19, 2015.
+      - listitem:
+        - link "Jump up":
+          - /url: "#cite_ref-86"
+          - text: ^
+        - text: Fortnow, Lance (August 2009).
+        - 'link "\"Viewpoint: Time for Computer Science to Grow Up\""':
+          - /url: https://doi.org/10.1145%2F1536616.1536631
+        - text: ". Communications of the ACM. 52 (8): 33–35."
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1145/1536616.1536631":
+          - /url: https://doi.org/10.1145%2F1536616.1536631
+        - text: .
+  - region "Further reading":
+    - heading "Further reading" [level=2]
+    - list:
+      - listitem:
+        - text: Tucker, Allen B. (2004). Computer Science Handbook (2nd ed.). Chapman and Hall/CRC.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-58488-360-9":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-58488-360-9
+        - text: .
+      - listitem:
+        - link "Ralston, Anthony":
+          - /url: https://en.wikipedia.org/wiki/Anthony_Ralston
+        - text: ; Reilly, Edwin D.; Hemmendinger, David (2000).
+        - link "Encyclopedia of Computer Science":
+          - /url: http://portal.acm.org/ralston.cfm
+        - text: (4th ed.). Grove's Dictionaries.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-56159-248-7":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-56159-248-7
+        - text: .
+        - link "Archived":
+          - /url: https://web.archive.org/web/20200608005417/https://dl.acm.org/doi/book/10.5555/1074100
+        - text: from the original on June 8, 2020. Retrieved February 6, 2011.
+      - listitem:
+        - text: Edwin D. Reilly (2003).
+        - link "Milestones in Computer Science and Information Technology":
+          - /url: https://archive.org/details/milestonesincomp0000reil
+        - text: . Greenwood Publishing Group.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-1-57356-521-9":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-1-57356-521-9
+        - text: .
+      - listitem:
+        - link "Knuth, Donald E.":
+          - /url: https://en.wikipedia.org/wiki/Donald_Knuth
+        - text: (1996). Selected Papers on Computer Science. CSLI Publications,
+        - link "Cambridge University Press":
+          - /url: https://en.wikipedia.org/wiki/Cambridge_University_Press
+        - text: .
+      - listitem:
+        - text: Collier, Bruce (1990).
+        - 'link "The little engine that could''ve: The calculating machines of Charles Babbage"':
+          - /url: http://robroy.dyndns.info/collier/index.html
+        - text: . Garland Publishing Inc.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0-8240-0043-1":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0-8240-0043-1
+        - text: .
+        - link "Archived":
+          - /url: https://web.archive.org/web/20070120190231/http://robroy.dyndns.info/collier/index.html
+        - text: from the original on January 20, 2007. Retrieved May 4, 2013.
+      - listitem:
+        - text: Cohen, Bernard (2000). Howard Aiken, Portrait of a computer pioneer. The MIT press.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-0-262-53179-5":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-0-262-53179-5
+        - text: .
+      - listitem:
+        - text: "Tedre, Matti (2014). The Science of Computing: Shaping a Discipline. CRC Press,"
+        - link "Taylor & Francis":
+          - /url: https://en.wikipedia.org/wiki/Taylor_&_Francis
+        - text: .
+      - listitem:
+        - link "Randell, Brian":
+          - /url: https://en.wikipedia.org/wiki/Brian_Randell
+        - text: (1973). The origins of Digital computers, Selected Papers. Springer-Verlag.
+        - link "ISBN":
+          - /url: https://en.wikipedia.org/wiki/ISBN_(identifier)
+        - link "978-3-540-06169-4":
+          - /url: https://en.wikipedia.org/wiki/Special:BookSources/978-3-540-06169-4
+        - text: .
+      - listitem:
+        - link "Randell, Brian":
+          - /url: https://en.wikipedia.org/wiki/Brian_Randell
+        - text: (October–December 1982).
+        - 'link "\"From Analytical Engine to Electronic Digital Computer: The Contributions of Ludgate, Torres, and Bush\""':
+          - /url: https://web.archive.org/web/20130921055055/http://www.cs.ncl.ac.uk/publications/articles/papers/398.pdf
+        - text: "(PDF). IEEE Annals of the History of Computing. 4 (4): 327–341."
+        - link "Bibcode":
+          - /url: https://en.wikipedia.org/wiki/Bibcode_(identifier)
+        - text: ":"
+        - link "1982IAHC....4d.327R":
+          - /url: https://ui.adsabs.harvard.edu/abs/1982IAHC....4d.327R
+        - text: .
+        - link "doi":
+          - /url: https://en.wikipedia.org/wiki/Doi_(identifier)
+        - text: ":"
+        - link "10.1109/mahc.1982.10042":
+          - /url: https://doi.org/10.1109%2Fmahc.1982.10042
+        - text: .
+        - link "S2CID":
+          - /url: https://en.wikipedia.org/wiki/S2CID_(identifier)
+        - link "1737953":
+          - /url: https://api.semanticscholar.org/CorpusID:1737953
+        - text: . Archived from
+        - link "the original":
+          - /url: http://www.cs.ncl.ac.uk/research/pubs/articles/papers/398.pdf
+        - text: (PDF) on September 21, 2013.
+      - listitem:
+        - text: Peter J. Denning.
+        - link "Is computer science science?":
+          - /url: http://portal.acm.org/citation.cfm?id=1053309&coll=&dl=ACM&CFID=15151515&CFTOKEN=6184618
+        - text: ", Communications of the ACM, April 2005."
+      - listitem:
+        - text: Peter J. Denning,
+        - link "Great principles in computing curricula":
+          - /url: http://portal.acm.org/citation.cfm?id=971303&dl=ACM&coll=&CFID=15151515&CFTOKEN=6184618
+        - text: ", Technical Symposium on Computer Science Education, 2004."
+  - region "External links":
+    - heading "External links" [level=2]
+    - link "Wikibooks logo":
+      - /url: https://en.wikipedia.org/wiki/File:Wikibooks-logo.svg
+      - img "Wikibooks logo"
+    - text: "Wikibooks has a book on the topic of:"
+    - link "Informatics Practices for Class XI (CBSE)":
+      - /url: https://en.wikibooks.org/wiki/Informatics%20Practices%20for%20Class%20XI%20(CBSE)
+    - navigation "sister projects":
+      - text: Computer science at Wikipedia's
+      - link "sister projects":
+        - /url: https://en.wikipedia.org/wiki/Wikipedia:Wikimedia_sister_projects
+      - list:
+        - listitem:
+          - link "Wiktionary logo":
+            - /url: https://en.wikipedia.org/wiki/File:Wiktionary-logo-en-v2.svg
+            - img "Wiktionary logo"
+          - link "Definitions":
+            - /url: https://en.wiktionary.org/wiki/computer%20science
+          - text: from Wiktionary
+        - listitem:
+          - link "Wikimedia Commons logo":
+            - /url: https://en.wikipedia.org/wiki/File:Commons-logo.svg
+            - img "Wikimedia Commons logo"
+          - link "Media":
+            - /url: https://commons.wikimedia.org/wiki/Category:Computer%20science
+          - text: from Commons
+        - listitem:
+          - link "Quotations":
+            - /url: https://en.wikiquote.org/wiki/Computer%20science
+          - text: from Wikiquote
+        - listitem:
+          - link "Wikibooks logo":
+            - /url: https://en.wikipedia.org/wiki/File:Wikibooks-logo.svg
+            - img "Wikibooks logo"
+          - link "Textbooks":
+            - /url: https://en.wikibooks.org/wiki/Computer%20science
+          - text: from Wikibooks
+        - listitem:
+          - link "Wikiversity logo":
+            - /url: https://en.wikipedia.org/wiki/File:Wikiversity_logo_2017.svg
+            - img "Wikiversity logo"
+          - link "Resources":
+            - /url: https://en.wikiversity.org/wiki/Computer%20science
+          - text: from Wikiversity
+    - link "Library resources":
+      - /url: https://en.wikipedia.org/wiki/Wikipedia:The_Wikipedia_Library
+    - text: about Computer science
+    - separator
+    - list:
+      - listitem:
+        - link "Resources in your library":
+          - /url: https://ftl.toolforge.org/cgi-bin/ftl?st=wp&su=Computer+science
+      - listitem:
+        - link "Resources in other libraries":
+          - /url: https://ftl.toolforge.org/cgi-bin/ftl?st=wp&su=Computer+science&library=0CHOOSE0
+    - list:
+      - listitem:
+        - link "DBLP Computer Science Bibliography":
+          - /url: http://dblp.uni-trier.de/
+      - listitem:
+        - link "Association for Computing Machinery":
+          - /url: http://www.acm.org/
+      - listitem:
+        - link "Institute of Electrical and Electronics Engineers":
+          - /url: https://www.ieee.org/
+    - navigation "Computer science":
+      - table:
+        - rowgroup:
+          - row "[show] v · t · e Computer science":
+            - columnheader "[show] v · t · e Computer science":
+              - button "[show]"
+              - list:
+                - listitem:
+                  - link "v":
+                    - /url: https://en.wikipedia.org/wiki/Template:Computer_science
+                  - text: ·
+                - listitem:
+                  - link "t":
+                    - /url: https://en.wikipedia.org/wiki/Template_talk:Computer_science
+                  - text: ·
+                - listitem:
+                  - link "e":
+                    - /url: https://en.wikipedia.org/wiki/Special:EditPage/Template:Computer_science
+              - link "Computer science":
+                - /url: https://en.wikipedia.org/wiki/Computer_science
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+    - navigation "Glossaries of science and engineering":
+      - table:
+        - rowgroup:
+          - row "[show] v · t · e Glossaries of science and engineering":
+            - columnheader "[show] v · t · e Glossaries of science and engineering":
+              - button "[show]"
+              - list:
+                - listitem:
+                  - link "v":
+                    - /url: https://en.wikipedia.org/wiki/Template:Glossaries_of_science_and_engineering
+                  - text: ·
+                - listitem:
+                  - link "t":
+                    - /url: https://en.wikipedia.org/wiki/Template_talk:Glossaries_of_science_and_engineering
+                  - text: ·
+                - listitem:
+                  - link "e":
+                    - /url: https://en.wikipedia.org/wiki/Special:EditPage/Template:Glossaries_of_science_and_engineering
+              - text: Glossaries of
+              - link "science":
+                - /url: https://en.wikipedia.org/wiki/Science
+              - text: and
+              - link "engineering":
+                - /url: https://en.wikipedia.org/wiki/Engineering
+          - row
+    - navigation "Software engineering":
+      - table:
+        - rowgroup:
+          - row "[show] v · t · e Software engineering":
+            - columnheader "[show] v · t · e Software engineering":
+              - button "[show]"
+              - list:
+                - listitem:
+                  - link "v":
+                    - /url: https://en.wikipedia.org/wiki/Template:Software_engineering
+                  - text: ·
+                - listitem:
+                  - link "t":
+                    - /url: https://en.wikipedia.org/wiki/Template_talk:Software_engineering
+                  - text: ·
+                - listitem:
+                  - link "e":
+                    - /url: https://en.wikipedia.org/wiki/Special:EditPage/Template:Software_engineering
+              - link "Software engineering":
+                - /url: https://en.wikipedia.org/wiki/Software_engineering
+          - row
+          - row
+          - row
+          - row
+          - row
+          - row
+    - navigation "Authority control databases Edit this at Wikidata":
+      - table:
+        - rowgroup:
+          - row "[show] Authority control databases Edit this at Wikidata":
+            - columnheader "[show] Authority control databases Edit this at Wikidata":
+              - button "[show]"
+              - link "Authority control databases":
+                - /url: https://en.wikipedia.org/wiki/Help:Authority_control
+              - link "Edit this at Wikidata":
+                - /url: https://www.wikidata.org/wiki/Q21198#identifiers
+                - img "Edit this at Wikidata"
+          - row
+          - row
+          - row
+  - link "Categories":
+    - /url: /wiki/Help:Category
+  - text: ":"
+  - list:
+    - listitem:
+      - link "Computer science":
+        - /url: /wiki/Category:Computer_science
+    - listitem:
+      - link "Formal sciences":
+        - /url: /wiki/Category:Formal_sciences
+- contentinfo:
+  - list:
+    - listitem: This page was last edited on 16 October 2026, at 18:39 (UTC).
+    - listitem:
+      - text: Page was rendered with
+      - link "Parsoid":
+        - /url: https://www.mediawiki.org/wiki/Special:MyLanguage/Parsoid
+      - text: .
+    - listitem:
+      - text: Text is available under the
+      - link "Creative Commons Attribution-ShareAlike 4.0 License":
+        - /url: /wiki/Wikipedia:Text_of_the_Creative_Commons_Attribution-ShareAlike_4.0_International_License
+      - text: ; additional terms may apply. By using this site, you agree to the
+      - link "Terms of Use":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Terms_of_Use
+      - text: and
+      - link "Privacy Policy":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
+      - text: . Wikipedia® is a registered trademark of the
+      - link "Wikimedia Foundation, Inc.":
+        - /url: https://wikimediafoundation.org/
+      - text: ", a non-profit organization."
+  - list:
+    - listitem:
+      - link "Privacy policy":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Privacy_policy
+    - listitem:
+      - link "About Wikipedia":
+        - /url: /wiki/Wikipedia:About
+    - listitem:
+      - link "Disclaimers":
+        - /url: /wiki/Wikipedia:General_disclaimer
+    - listitem:
+      - link "Contact Wikipedia":
+        - /url: //en.wikipedia.org/wiki/Wikipedia:Contact_us
+    - listitem:
+      - link "Legal & safety contacts":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Legal:Wikimedia_Foundation_Legal_and_Safety_Contact_Information
+    - listitem:
+      - link "Code of Conduct":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Universal_Code_of_Conduct
+    - listitem:
+      - link "Developers":
+        - /url: https://developer.wikimedia.org
+    - listitem:
+      - link "Statistics":
+        - /url: https://stats.wikimedia.org/#/en.wikipedia.org
+    - listitem:
+      - link "Cookie statement":
+        - /url: https://foundation.wikimedia.org/wiki/Special:MyLanguage/Policy:Cookie_statement
+    - listitem:
+      - link "Mobile view":
+        - /url: //en.wikipedia.org/w/index.php?title=Computer_science&mobileaction=toggle_view_mobile
+  - list:
+    - listitem:
+      - link "Wikimedia Foundation":
+        - /url: https://www.wikimedia.org/
+        - img "Wikimedia Foundation"
+    - listitem:
+      - link "Powered by MediaWiki":
+        - /url: https://www.mediawiki.org/
+        - img "Powered by MediaWiki"
+- list
+```
+
+# Test source
+
+```ts
+  1  | 
+  2  | const { test, expect } = require('@playwright/test');
+  3  | 
+  4  | test('TC04 - Computer Science article opens', async ({ page }) => {
+  5  |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  6  | 
+  7  |   await expect(
+  8  |     page.getByRole('heading', {
+  9  |       name: 'Computer science',
+  10 |       exact: true
+  11 |     }).first()
+  12 |   ).toBeVisible();
+  13 | });
+  14 | 
+  15 | test('TC05 - Article main content is visible', async ({ page }) => {
+  16 |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  17 | 
+  18 |   await expect(page.locator('#mw-content-text')).toBeVisible();
+  19 | });
+  20 | 
+  21 | test('TC06 - Article contains section headings', async ({ page }) => {
+  22 |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  23 | 
+  24 |   await expect(
+  25 |     page.getByRole('heading', { name: 'History', exact: true })
+  26 |   ).toBeVisible();
+  27 | });
+  28 | 
+  29 | test('TC07 - Article contains internal Wikipedia links', async ({ page }) => {
+  30 |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  31 | 
+  32 |   const internalLinks = page.locator(
+  33 |     '#mw-content-text a[href^="/wiki/"]'
+  34 |   );
+  35 | 
+> 36 |   await expect(internalLinks.first()).toBeVisible();
+     |                                       ^ Error: expect(locator).toBeVisible() failed
+  37 | });
+  38 | 
+  39 | test('TC08 - Article page title is correct', async ({ page }) => {
+  40 |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  41 | 
+  42 |   await expect(page).toHaveTitle(/Computer science.*Wikipedia/i);
+  43 | });
+  44 | 
+  45 | test('TC09 - User can navigate to an article section', async ({ page }) => {
+  46 |   await page.goto('https://en.wikipedia.org/wiki/Computer_science');
+  47 | 
+  48 |   const historyHeading = page.getByRole('heading', {
+  49 |     name: 'History',
+  50 |     exact: true
+  51 |   });
+  52 | 
+  53 |   await historyHeading.scrollIntoViewIfNeeded();
+  54 |   await expect(historyHeading).toBeVisible();
+  55 | });
+  56 | 
+```
